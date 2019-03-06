@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c
+jni.h
+-
+errno.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+sys/resource.h
+-
+android_native_app_glue.h
+C:/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.h
+android/log.h
+-
+
+C:/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.h
+poll.h
+-
+pthread.h
+-
+sched.h
+-
+android/configuration.h
+-
+android/looper.h
+-
+android/native_activity.h
+-
+

@@ -1,0 +1,3 @@
+C:/StudioProjects/GamePlay/gameplay/CMakeFiles/rebuild_cache.dir
+C:/StudioProjects/GamePlay/gameplay/CMakeFiles/gameplay.dir
+C:/StudioProjects/GamePlay/gameplay/CMakeFiles/edit_cache.dir
