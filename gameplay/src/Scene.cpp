@@ -381,6 +381,11 @@ const Vector3& Scene::getAmbientColor() const
     return _ambientColor;
 }
 
+const Vector3* Scene::getAmbientColorPtr() const
+{
+    return &_ambientColor;
+}
+
 void Scene::setAmbientColor(float red, float green, float blue)
 {
     _ambientColor.set(red, green, blue);

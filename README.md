@@ -9,7 +9,7 @@ I will continue to update and improve the Gameplay3D game engine in the future.
 More people are welcome to join.
 If someone needs to learn to communicate, you can send an email to 84125710@qq.com.
 
-偶然发现了Gameplay3D游戏引擎,代码比较简单易懂,对于学习研究游戏引擎很有帮助,但不支持Unicode文本支持,而且很久无人维护更新,,为了方便以后学习和使用,在官方最后更新的版本上增加了unicode文本支持。 修复了一些简单bug。 
+偶然发现了Gameplay3D游戏引擎,代码比较简单易懂,对于学习研究游戏引擎很有帮助,但不支持Unicode文本,而且很久无人维护更新,为了方便以后学习和使用,在官方最后更新的版本上增加了unicode文本支持。 修复了一些简单bug。 
 本人以后持续更新完善Gameplay3D游戏引擎。
 欢迎更多人加入。
 如果有人需要学习交流,可以发邮件到84125710@qq.com。

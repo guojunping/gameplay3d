@@ -166,6 +166,8 @@ public:
      */
     const Vector3& getAmbientColor() const;
 
+    const Vector3 *getAmbientColorPtr() const;
+
     /**
      * Sets the ambient color of the scene.
      *

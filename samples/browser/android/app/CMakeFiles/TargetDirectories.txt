@@ -1,3 +1,0 @@
-C:/StudioProjects/GamePlay/samples/browser/android/app/CMakeFiles/sample-browser.dir
-C:/StudioProjects/GamePlay/samples/browser/android/app/CMakeFiles/edit_cache.dir
-C:/StudioProjects/GamePlay/samples/browser/android/app/CMakeFiles/rebuild_cache.dir

@@ -80,11 +80,11 @@ void CharacterGame::initializeMaterial(Scene* scene, Node* node, Material* mater
     // Bind light shader parameters to dynamic objects only
     if (node->hasTag("dynamic"))
     {
-        material->getParameter("u_ambientColor")->bindValue(scene, &Scene::getAmbientColor);
+        material->getParameter("u_ambientColor")->bindValue(scene, &Scene::getAmbientColorPtr);
         Node* lightNode = scene->findNode("sun");
         if (lightNode)
         {
-            material->getParameter("u_directionalLightColor[0]")->bindValue(lightNode->getLight(), &Light::getColor);
+            material->getParameter("u_directionalLightColor[0]")->bindValue(lightNode->getLight(), &Light::getColorPtr);
             material->getParameter("u_directionalLightDirection[0]")->bindValue(lightNode, &Node::getForwardVectorView);
         }
     }
