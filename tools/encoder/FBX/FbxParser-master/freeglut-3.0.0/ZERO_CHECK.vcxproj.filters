@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\work\GamePlay\tools\encoder\FBX\FbxParser-master\freeglut-3.0.0\CMakeFiles\6f37ebed7552f998601bf40297980934\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{702D73D5-92FD-34FB-881F-7F373BE56E65}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
