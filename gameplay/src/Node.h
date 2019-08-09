@@ -15,6 +15,7 @@
 #include "PhysicsCollisionObject.h"
 #include "BoundingBox.h"
 #include "AIAgent.h"
+#include "Animations.h"
 
 namespace gameplay
 {
@@ -607,6 +608,14 @@ public:
      */
     Node* clone() const;
 
+	/* animtion manage */
+	void addAnimation(Animation* animation);
+	unsigned int getAnimationCount() const;
+	unsigned int getAnimations(std::vector<Animation*>& anmiations) const;
+	Animation* findAnimation(const std::string &id) const;
+	bool removeAnimation(Animation* animation);
+	bool removeAnimation(const std::string & id);
+
 protected:
 
     /**
@@ -752,6 +761,8 @@ protected:
     mutable BoundingSphere _bounds;
     /** The dirty bits used for optimization. */
     mutable int _dirtyBits;
+	/* all animation */
+	Animations* _animations;
 };
 
 /**

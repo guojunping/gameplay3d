@@ -764,15 +764,9 @@ void ParticlesSample::updateFrames()
     TextBox* cBox = (TextBox*)_form->getControl("frameCount");
     TextBox* wBox = (TextBox*)_form->getControl("frameWidth");
     TextBox* hBox = (TextBox*)_form->getControl("frameHeight");
-    //unsigned int fc = (unsigned int)wcstol(cBox->getText(),0,10);
-    unsigned int fc = 0;
-    wscanf(cBox->getText(),"%u",fc);
-    //unsigned int w = (unsigned int)wcstol(wBox->getText(),0,10);
-    unsigned int w = 0;
-    wscanf(wBox->getText(),"%u",w);
-    //unsigned int h = (unsigned int)wcstol(hBox->getText(),0,10);
-    unsigned int h = 0;
-    wscanf(hBox->getText(),"%u",h);
+    unsigned int fc = (unsigned int)atoi(cBox->getText());
+    unsigned int w = (unsigned int)atoi(wBox->getText());
+    unsigned int h = (unsigned int)atoi(hBox->getText());
     if (fc > 0 && fc < 256 && fc < 1000 && w > 0 && h > 0 && w < 4096 && h < 4096)
     {
         if (w > _particleEmitter->getTexture()->getWidth())

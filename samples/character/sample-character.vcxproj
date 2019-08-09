@@ -77,7 +77,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>freetype245_D.lib;OpenGL32.lib;GLU32.lib;gameplay.lib;gameplay-deps.lib;XInput.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freetype245_D.lib;OpenGL32.lib;GLU32.lib;gameplay.lib;gameplay-deps.lib;XInput.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\external-deps\lib\windows\x86_64\Debug;..\..\gameplay\Debug;$(DXSDK_DIR)Lib\x64</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>

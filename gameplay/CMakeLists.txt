@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 3.10)
-
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(GAMEPLAY_PLATFORM_SRC
             src/PlatformMacOSX.mm
@@ -8,11 +6,6 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 else(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(GAMEPLAY_PLATFORM_SRC )
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-
-
-set(GAMEPLAY_VERSION 3.0.0)
-
-MESSAGE(${CMAKE_SYSTEM_NAME})
 
 set(GAMEPLAY_SRC
     src/AbsoluteLayout.cpp
@@ -68,8 +61,6 @@ set(GAMEPLAY_SRC
     src/ControlFactory.cpp
     src/Curve.cpp
     src/Curve.h
-    src/Conversion.h
-    src/Conversion.cpp
     src/DebugNew.cpp
     src/DebugNew.h
     src/DepthStencilTarget.cpp
@@ -84,10 +75,6 @@ set(GAMEPLAY_SRC
     src/FlowLayout.h
     src/Font.cpp
     src/Font.h
-    src/AFont.cpp
-    src/AFont.h
-    src/UFont.cpp
-    src/UFont.h
     src/Form.cpp
     src/Form.h
     src/FrameBuffer.cpp
@@ -564,22 +551,10 @@ set(GAMEPLAY_RES_SHADERS
     res/ui/default.theme
 )
 
-
-
-IF(CMAKE_SYSTEM_NAME STREQUAL "Android")   
-   include_directories(
-    ${ANDROID_NDK}/sources/android/native_app_glue
+include_directories(
     src
     ../external-deps/include
-   )
-ELSE(CMAKE_SYSTEM_NAME STREQUAL "Android")  
-   include_directories(
-    src
-    ../external-deps/include
-   )                                   
-ENDIF(CMAKE_SYSTEM_NAME STREQUAL "Android")
-     
-
+)
 
 IF(CMAKE_SYSTEM_NAME MATCHES "Linux")
 find_package(PkgConfig REQUIRED)
@@ -601,8 +576,6 @@ add_library(gameplay STATIC
     ${GAMEPLAY_SRC}
     ${GAMEPLAY_LUA}
 )
-
-MESSAGE(${GAMEPLAY_VERSION})
 
 set_target_properties(gameplay PROPERTIES
     OUTPUT_NAME "gameplay"

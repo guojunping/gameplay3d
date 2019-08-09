@@ -124,9 +124,6 @@ public:
     virtual void drawText(const char* text, int x, int y, const Vector4& color, unsigned int size = 0,
                   bool rightToLeft = false) = 0;
 
-	virtual void drawText(const wchar_t* text, int x, int y, const Vector4& color, unsigned int size = 0,
-		bool rightToLeft = false) = 0;
-
     /**
      * Draws the specified text in a solid color, with a scaling factor.
      *
@@ -142,9 +139,6 @@ public:
      */
 	virtual void drawText(const char* text, int x, int y, float red, float green, float blue, float alpha, unsigned int size = 0,
                   bool rightToLeft = false) = 0;
-
-	virtual void drawText(const wchar_t* text, int x, int y, float red, float green, float blue, float alpha, unsigned int size = 0,
-		bool rightToLeft = false) = 0;
 
     /**
      * Draws the specified text within a rectangular area, with a specified alignment and scale.
@@ -162,10 +156,6 @@ public:
 	virtual void drawText(const char* text, const Rectangle& area, const Vector4& color, unsigned int size = 0,
                   Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool rightToLeft = false,
                   const Rectangle& clip = Rectangle(0, 0, 0, 0)) = 0;
-
-	virtual void drawText(const wchar_t* text, const Rectangle& area, const Vector4& color, unsigned int size = 0,
-		Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool rightToLeft = false,
-		const Rectangle& clip = Rectangle(0, 0, 0, 0)) = 0;
 
     /**
      * Finishes text batching for this font and renders all drawn text.
@@ -197,31 +187,6 @@ public:
 	virtual void measureText(const char* text, const Rectangle& clip, unsigned int size, Rectangle* out,
                      Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool ignoreClip = false) = 0;
 
-	/**
-	* Measures a string's width and height without alignment, wrapping or clipping.
-	*
-	* @param text The text to measure.
-	* @param size The font height to scale to.
-	* @param widthOut Destination for the text's width.
-	* @param heightOut Destination for the text's height.
-	*/
-	virtual void measureText(const wchar_t* text, unsigned int size, unsigned int* widthOut, unsigned int* heightOut) = 0;
-
-	/**
-	* Measures a string's bounding box after alignment, wrapping and clipping within a viewport.
-	*
-	* @param text The text to measure.
-	* @param clip The clip rectangle.
-	* @param size The font height to scale to.
-	* @param out Destination rectangle to store the bounds in.
-	* @param justify Justification of text within the viewport.
-	* @param wrap Whether to measure text with wrapping applied.
-	* @param ignoreClip Whether to clip 'out' to the viewport.  Set false for the bounds of what would actually be drawn
-	*                within the given viewport; true for bounds that are guaranteed to fit the entire string of text.
-	*/
-	virtual void measureText(const wchar_t* text, const Rectangle& clip, unsigned int size, Rectangle* out,
-		Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool ignoreClip = false) = 0;
-
     /**
      * Returns current character spacing for this font in percentage of fonts size.
      *
@@ -248,9 +213,6 @@ public:
      */
 	virtual int getIndexAtLocation(const char* text, const Rectangle& clip, unsigned int size, const Vector2& inLocation,
                            Vector2* outLocation, Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool rightToLeft = false) = 0;
-	
-	virtual int getIndexAtLocation(const wchar_t* text, const Rectangle& clip, unsigned int size, const Vector2& inLocation,
-		Vector2* outLocation, Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool rightToLeft = false) = 0;
 
     /**
      * Get the location of the character at the given index.
@@ -258,10 +220,6 @@ public:
 	virtual void getLocationAtIndex(const char* text, const Rectangle& clip, unsigned int size, Vector2* outLocation,
                             const unsigned int destIndex, Justify justify = ALIGN_TOP_LEFT, bool wrap = true,
                             bool rightToLeft = false) = 0;
-
-	virtual void getLocationAtIndex(const wchar_t* text, const Rectangle& clip, unsigned int size, Vector2* outLocation,
-							const unsigned int destIndex, Justify justify = ALIGN_TOP_LEFT, bool wrap = true,
-							bool rightToLeft = false) = 0;
 
     /**
      * Gets the sprite batch used to draw this Font.
@@ -283,9 +241,6 @@ public:
     static Justify getJustify(const char* justify);
 
 	virtual int getIndexOrLocation(const char* text, const Rectangle& clip, unsigned int size, const Vector2& inLocation, Vector2* outLocation,
-		const int destIndex = -1, Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool rightToLeft = false) = 0;
-
-	virtual int getIndexOrLocation(const wchar_t* text, const Rectangle& clip, unsigned int size, const Vector2& inLocation, Vector2* outLocation,
 		const int destIndex = -1, Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool rightToLeft = false) = 0;
 
 protected:

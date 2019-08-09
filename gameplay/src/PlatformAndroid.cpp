@@ -142,7 +142,7 @@ static int getRotation()
     ANativeActivity* activity = __state->activity;
     JavaVM* jvm = __state->activity->vm;
     JNIEnv* env = NULL;
-    //jvm->GetEnv((void **)&env, JNI_VERSION_1_6);
+    jvm->GetEnv((void **)&env, JNI_VERSION_1_6);
     jint res = jvm->AttachCurrentThread(&env, NULL);
     if (res == JNI_ERR)
     {
@@ -227,15 +227,13 @@ static bool initEGL()
         if (__eglDisplay == EGL_NO_DISPLAY)
         {
             checkErrorEGL("eglGetDisplay");
-            //goto error;
-            return false;
+            goto error;
         }
 
         if (eglInitialize(__eglDisplay, NULL, NULL) != EGL_TRUE)
         {
             checkErrorEGL("eglInitialize");
-            //goto error;
-            return false;
+            goto error;
         }
 
         // Try both 24 and 16-bit depth sizes since some hardware (i.e. Tegra) does not support 24-bit depth
@@ -284,16 +282,14 @@ static bool initEGL()
         if (!validConfig)
         {
             checkErrorEGL("eglChooseConfig");
-            //goto error;
-            return false;
+            goto error;
         }
 
         __eglContext = eglCreateContext(__eglDisplay, __eglConfig, EGL_NO_CONTEXT, eglContextAttrs);
         if (__eglContext == EGL_NO_CONTEXT)
         {
             checkErrorEGL("eglCreateContext");
-            //goto error;
-            return false;
+            goto error;
         }
     }
     
@@ -309,15 +305,13 @@ static bool initEGL()
     if (__eglSurface == EGL_NO_SURFACE)
     {
         checkErrorEGL("eglCreateWindowSurface");
-        //goto error;
-        return false;
+        goto error;
     }
     
     if (eglMakeCurrent(__eglDisplay, __eglSurface, __eglSurface, __eglContext) != EGL_TRUE)
     {
         checkErrorEGL("eglMakeCurrent");
-        //goto error;
-        return false;
+        goto error;
     }
     
     eglQuerySurface(__eglDisplay, __eglSurface, EGL_WIDTH, &__width);
@@ -343,8 +337,8 @@ static bool initEGL()
     
     return true;
     
-//error:
-//    return false;
+error:
+    return false;
 }
 
 static void destroyEGLSurface()
@@ -391,7 +385,7 @@ static void displayKeyboard(android_app* state, bool show)
     jint flags = 0;
     JavaVM* jvm = state->activity->vm;
     JNIEnv* env = NULL;
-    //jvm->GetEnv((void **)&env, JNI_VERSION_1_6);
+    jvm->GetEnv((void **)&env, JNI_VERSION_1_6);
     jint result = jvm->AttachCurrentThread(&env, NULL);
     if (result == JNI_ERR)
     {
@@ -1317,7 +1311,7 @@ int Platform::enterMessagePump()
     ANativeActivity* activity = __state->activity;
     JavaVM* jvm = __state->activity->vm;
     JNIEnv* env = NULL;
-    //jvm->GetEnv((void **)&env, JNI_VERSION_1_6);
+    jvm->GetEnv((void **)&env, JNI_VERSION_1_6);
     jint res = jvm->AttachCurrentThread(&env, NULL);
     if (res == JNI_ERR)
     {
@@ -1454,7 +1448,7 @@ int Platform::enterMessagePump()
         }
 
         // Display the keyboard.
-        //gameplay::displayKeyboard(__state, __displayKeyboard);
+        gameplay::displayKeyboard(__state, __displayKeyboard);
     }
     return 0;
 }
@@ -1660,7 +1654,6 @@ void Platform::displayKeyboard(bool display)
         __displayKeyboard = true;
     else
         __displayKeyboard = false;
-    gameplay::displayKeyboard(__state, __displayKeyboard);
 }
 
 void Platform::shutdownInternal()
@@ -1738,7 +1731,7 @@ bool Platform::launchURL(const char *url)
     GP_ASSERT(state && state->activity && state->activity->vm);
     JavaVM* jvm = state->activity->vm;
     JNIEnv* env = NULL;
-    //jvm->GetEnv((void **)&env, JNI_VERSION_1_6);
+    jvm->GetEnv((void **)&env, JNI_VERSION_1_6);
     jint r = jvm->AttachCurrentThread(&env, NULL);
     if (r == JNI_ERR)
     {

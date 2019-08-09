@@ -78,7 +78,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>OpenGL32.lib;GLU32.lib;gameplay.lib;freetype245_D.lib;gameplay-deps.lib;XInput.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OpenGL32.lib;GLU32.lib;OpenAL32.lib;gameplay.lib;freetype245_D.lib;gameplay-deps.lib;XInput.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\external-deps\lib\windows\x86_64\Debug;..\..\gameplay\Debug;$(DXSDK_DIR)Lib\x64</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
@@ -266,6 +266,7 @@ copy ..\..\gameplay\res\logo_powered_white.png res</Command>
     <ClCompile Include="src\GamepadSample.cpp" />
     <ClCompile Include="src\GestureSample.cpp" />
     <ClCompile Include="src\LightSample.cpp" />
+    <ClCompile Include="src\LoadNodeSample.cpp" />
     <ClCompile Include="src\ParticlesSample.cpp" />
     <ClCompile Include="src\PostProcessSample.cpp" />
     <ClCompile Include="src\SceneCreateSample.cpp" />
@@ -294,6 +295,7 @@ copy ..\..\gameplay\res\logo_powered_white.png res</Command>
     <ClInclude Include="src\GamepadSample.h" />
     <ClInclude Include="src\GestureSample.h" />
     <ClInclude Include="src\LightSample.h" />
+    <ClInclude Include="src\LoadNodeSample.h" />
     <ClInclude Include="src\ParticlesSample.h" />
     <ClInclude Include="src\PostProcessSample.h" />
     <ClInclude Include="src\SceneCreateSample.h" />

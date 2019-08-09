@@ -144,8 +144,6 @@ public:
      */
     const Vector3& getColor() const;
 
-    const Vector3* getColorPtr() const;
-
     /**
      * Sets the light color.
      * 

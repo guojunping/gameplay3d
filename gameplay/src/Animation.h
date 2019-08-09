@@ -27,7 +27,7 @@ class Animation : public Ref
     friend class AnimationClip;
     friend class AnimationTarget;
     friend class Bundle;
-
+	friend class Animations;
 public:
 
     /**
@@ -63,7 +63,7 @@ public:
      * @return The newly created AnimationClip; NULL if an AnimationClip already exists with the same ID.
      * @script{create}
      */
-    AnimationClip* createClip(const char* id, unsigned long begin, unsigned long end);
+    AnimationClip* createClip(const char* id, unsigned long begin, unsigned long end, int startChannelIndex = -1, int channelCount = 0);
 
     /**
      * Finds the AnimationClip with the specified name. If NULL, gets the default clip.
@@ -112,7 +112,29 @@ public:
      */
     bool targets(AnimationTarget* target) const;
 
+	/**
+	*
+	*/
+	void addTakeInfo(const char* id, long duration);
+
+	/**
+	*
+	*/
+	void createClipsFromTakeInfo();
+
 private:
+
+	class TakeInfo {
+		friend class AnimationClip;
+		friend class Animation;
+		friend class AnimationTarget;
+
+	private:
+		std::string _id;
+		int _startChannelIndex;
+		int _channelCount;
+		unsigned long _duration;              // The length of the animation (in milliseconds).
+	};
 
     /**
      * Defines a channel which holds the target, target property, curve values, and duration.
@@ -125,7 +147,8 @@ private:
         friend class AnimationClip;
         friend class Animation;
         friend class AnimationTarget;
-
+	public:
+		unsigned long getDuration();
     private:
 
         Channel(Animation* animation, AnimationTarget* target, int propertyId, Curve* curve, unsigned long duration);
@@ -134,6 +157,7 @@ private:
         ~Channel();
         Channel& operator=(const Channel&); // Hidden copy assignment operator.
         Curve* getCurve() const;
+		
 
         Animation* _animation;                // Reference to the animation this channel belongs to.
         AnimationTarget* _target;             // The target of this channel.
@@ -227,13 +251,16 @@ private:
      */
     Animation* clone(Channel* channel, AnimationTarget* target);
 
+	void setAnimations(Animations *animations);
+
     AnimationController* _controller;       // The AnimationController that this Animation will run on.
     std::string _id;                        // The Animation's ID.
     unsigned long _duration;                // the length of the animation (in milliseconds).
     std::vector<Channel*> _channels;        // The channels within this Animation.
     AnimationClip* _defaultClip;            // The Animation's default clip.
     std::vector<AnimationClip*>* _clips;    // All the clips created from this Animation.
-
+	std::vector<TakeInfo*> _takeInfos;
+	Animations* _animations;
 };
 
 }

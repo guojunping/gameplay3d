@@ -424,16 +424,10 @@ void Texture::copyTexture(Texture *srcTex, int offx, int offy, int x, int y, int
 	///
 	glGenFramebuffers(1, &fbo);
 	/// bind the FBO
-#ifndef GL_READ_FRAMEBUFFER
-	GL_ASSERT(glBindFramebuffer(GL_FRAMEBUFFER, fbo));
-	/// attach the source texture to the fbo
-	GL_ASSERT(glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, srcTex->getHandle(), 0));
-#else
 	GL_ASSERT(glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo));
 	/// attach the source texture to the fbo
 	GL_ASSERT(glFramebufferTexture2D(GL_READ_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, srcTex->getHandle(), 0));
-#endif
-		/// bind the destination texture
+	/// bind the destination texture
 	GL_ASSERT(glBindTexture(GL_TEXTURE_2D, _handle));
 	/// copy from framebuffer (here, the FBO!) to the bound texture
 	GL_ASSERT(glCopyTexSubImage2D(GL_TEXTURE_2D, 0, offx, offy, x, y, w, h));

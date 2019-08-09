@@ -40,7 +40,7 @@ Animation* AnimationTarget::createAnimation(const char* id, int propertyId, unsi
     GP_ASSERT(keyCount >= 1 && keyTimes && keyValues);
 
     Animation* animation = new Animation(id, this, propertyId, keyCount, keyTimes, keyValues, type);
-
+	animation->addTakeInfo(id , animation->getDuration());
     return animation;
 }
 
@@ -48,7 +48,6 @@ Animation* AnimationTarget::createAnimation(const char* id, int propertyId, unsi
 {
     GP_ASSERT(keyCount >= 1 && keyTimes && keyValues && keyInValue && keyOutValue);
     Animation* animation = new Animation(id, this, propertyId, keyCount, keyTimes, keyValues, keyInValue, keyOutValue, type);
-
     return animation;
 }
 
@@ -112,6 +111,190 @@ Animation* AnimationTarget::createAnimationFromBy(const char* id, int propertyId
     SAFE_DELETE_ARRAY(keyTimes);
 
     return animation;
+}
+
+Animation* AnimationTarget::addAnimationChannel(Animation* animation, Properties* animationProperties) {
+	GP_ASSERT(animationProperties);
+	if (std::strcmp(animationProperties->getNamespace(), "animation") != 0)
+	{
+		GP_ERROR("Invalid animation namespace '%s'.", animationProperties->getNamespace());
+		return NULL;
+	}
+
+	const char* propertyIdStr = animationProperties->getString("property");
+	if (propertyIdStr == NULL)
+	{
+		GP_ERROR("Attribute 'property' must be specified for an animation.");
+		return NULL;
+	}
+
+	// Get animation target property id
+	int propertyId = getPropertyId(_targetType, propertyIdStr);
+	if (propertyId == -1)
+	{
+		GP_ERROR("Property ID is invalid.");
+		return NULL;
+	}
+
+	unsigned int keyCount = animationProperties->getInt("keyCount");
+	if (keyCount == 0)
+	{
+		GP_ERROR("Attribute 'keyCount' must be specified for an animation.");
+		return NULL;
+	}
+
+	const char* keyTimesStr = animationProperties->getString("keyTimes");
+	if (keyTimesStr == NULL)
+	{
+		GP_ERROR("Attribute 'keyTimes' must be specified for an animation.");
+		return NULL;
+	}
+
+	const char* keyValuesStr = animationProperties->getString("keyValues");
+	if (keyValuesStr == NULL)
+	{
+		GP_ERROR("Attribute 'keyValues' must be specified for an animation.");
+		return NULL;
+	}
+
+	const char* curveStr = animationProperties->getString("curve");
+	if (curveStr == NULL)
+	{
+		GP_ERROR("Attribute 'curve' must be specified for an animation.");
+		return NULL;
+	}
+
+	char delimeter = ' ';
+	size_t startOffset = 0;
+	size_t endOffset = std::string::npos;
+
+	unsigned int* keyTimes = new unsigned int[keyCount];
+	for (size_t i = 0; i < keyCount; i++)
+	{
+		endOffset = static_cast<std::string>(keyTimesStr).find_first_of(delimeter, startOffset);
+		if (endOffset != std::string::npos)
+		{
+			keyTimes[i] = std::strtoul(static_cast<std::string>(keyTimesStr).substr(startOffset, endOffset - startOffset).c_str(), NULL, 0);
+		}
+		else
+		{
+			keyTimes[i] = std::strtoul(static_cast<std::string>(keyTimesStr).substr(startOffset, static_cast<std::string>(keyTimesStr).length()).c_str(), NULL, 0);
+		}
+		startOffset = endOffset + 1;
+	}
+
+	startOffset = 0;
+	endOffset = std::string::npos;
+
+	int componentCount = getAnimationPropertyComponentCount(propertyId);
+	GP_ASSERT(componentCount > 0);
+
+	unsigned int components = keyCount * componentCount;
+
+	float* keyValues = new float[components];
+	for (unsigned int i = 0; i < components; i++)
+	{
+		endOffset = static_cast<std::string>(keyValuesStr).find_first_of(delimeter, startOffset);
+		if (endOffset != std::string::npos)
+		{
+			keyValues[i] = std::atof(static_cast<std::string>(keyValuesStr).substr(startOffset, endOffset - startOffset).c_str());
+		}
+		else
+		{
+			keyValues[i] = std::atof(static_cast<std::string>(keyValuesStr).substr(startOffset, static_cast<std::string>(keyValuesStr).length()).c_str());
+		}
+		startOffset = endOffset + 1;
+	}
+
+	const char* keyInStr = animationProperties->getString("keyIn");
+	float* keyIn = NULL;
+	if (keyInStr)
+	{
+		keyIn = new float[components];
+		startOffset = 0;
+		endOffset = std::string::npos;
+		for (unsigned int i = 0; i < components; i++)
+		{
+			endOffset = static_cast<std::string>(keyInStr).find_first_of(delimeter, startOffset);
+			if (endOffset != std::string::npos)
+			{
+				keyIn[i] = std::atof(static_cast<std::string>(keyInStr).substr(startOffset, endOffset - startOffset).c_str());
+			}
+			else
+			{
+				keyIn[i] = std::atof(static_cast<std::string>(keyInStr).substr(startOffset, static_cast<std::string>(keyInStr).length()).c_str());
+			}
+			startOffset = endOffset + 1;
+		}
+	}
+
+	const char* keyOutStr = animationProperties->getString("keyOut");
+	float* keyOut = NULL;
+	if (keyOutStr)
+	{
+		keyOut = new float[components];
+		startOffset = 0;
+		endOffset = std::string::npos;
+		for (unsigned int i = 0; i < components; i++)
+		{
+			endOffset = static_cast<std::string>(keyOutStr).find_first_of(delimeter, startOffset);
+			if (endOffset != std::string::npos)
+			{
+				keyOut[i] = std::atof(static_cast<std::string>(keyOutStr).substr(startOffset, endOffset - startOffset).c_str());
+			}
+			else
+			{
+				keyOut[i] = std::atof(static_cast<std::string>(keyOutStr).substr(startOffset, static_cast<std::string>(keyOutStr).length()).c_str());
+			}
+			startOffset = endOffset + 1;
+		}
+	}
+
+	int curve = Curve::getInterpolationType(curveStr);
+
+	if (keyIn && keyOut)
+	{
+		GP_ASSERT(keyCount >= 1 && keyTimes && keyValues);
+		animation->createChannel(this, propertyId, keyCount, keyTimes, keyValues, keyIn, keyOut, (Curve::InterpolationType)curve);
+	}
+	else
+	{
+		animation->createChannel(this, propertyId, keyCount, keyTimes, keyValues, (Curve::InterpolationType) curve);
+	}
+
+	const char* repeat = animationProperties->getString("repeatCount");
+	if (repeat)
+	{
+		if (strcmp(repeat, ANIMATION_TARGET_INDEFINITE_STR) == 0)
+		{
+			animation->getClip()->setRepeatCount(AnimationClip::REPEAT_INDEFINITE);
+		}
+		else
+		{
+			float value;
+			sscanf(repeat, "%f", &value);
+			animation->getClip()->setRepeatCount(value);
+		}
+	}
+
+	SAFE_DELETE_ARRAY(keyOut);
+	SAFE_DELETE_ARRAY(keyIn);
+	SAFE_DELETE_ARRAY(keyValues);
+	SAFE_DELETE_ARRAY(keyTimes);
+
+	Properties* pClip = animationProperties->getNextNamespace();
+	if (pClip && std::strcmp(pClip->getNamespace(), "clip") == 0)
+	{
+		int frameCount = animationProperties->getInt("frameCount");
+		if (frameCount <= 0)
+		{
+			GP_ERROR("Frame count must be greater than zero for a clip.");
+			return animation;
+		}
+		animation->createClips(animationProperties, (unsigned int)frameCount);
+	}
+
+	return animation;
 }
 
 Animation* AnimationTarget::createAnimation(const char* id, Properties* animationProperties)
@@ -335,6 +518,11 @@ Animation* AnimationTarget::getAnimation(const char* id) const
                 return channel->_animation;
             }
         }
+		for (; itr != _animationChannels->end(); itr++)
+		{
+			channel = (Animation::Channel*)(*itr);
+			GP_WARN("Animation = %s", channel->_animation->_id.c_str());
+		}
     }
 
     return NULL;

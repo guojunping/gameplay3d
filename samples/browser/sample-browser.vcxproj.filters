@@ -396,6 +396,9 @@
     <ClInclude Include="src\FontSample.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\LoadNodeSample.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MeshPrimitiveSample.cpp">
@@ -474,6 +477,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\FontSample.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LoadNodeSample.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

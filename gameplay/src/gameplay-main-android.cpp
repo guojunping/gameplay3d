@@ -13,6 +13,9 @@ extern struct android_app* __state;
  */
 void android_main(struct android_app* state)
 {
+    // Android specific : Dummy function that needs to be called to 
+    // ensure that the native activity works properly behind the scenes.
+    app_dummy();
     
     __state = state;
     Game* game = Game::getInstance();

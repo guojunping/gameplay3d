@@ -1,789 +1,686 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
+    <ProjectConfiguration Include="DebugMem|x64">
+      <Configuration>DebugMem</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
+    <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="MinSizeRel|Win32">
-      <Configuration>MinSizeRel</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="RelWithDebInfo|Win32">
-      <Configuration>RelWithDebInfo</Configuration>
-      <Platform>Win32</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\AbsoluteLayout.cpp" />
+    <ClCompile Include="src\AFont.cpp" />
+    <ClCompile Include="src\AIAgent.cpp" />
+    <ClCompile Include="src\AIController.cpp" />
+    <ClCompile Include="src\AIMessage.cpp" />
+    <ClCompile Include="src\AIState.cpp" />
+    <ClCompile Include="src\AIStateMachine.cpp" />
+    <ClCompile Include="src\Animation.cpp" />
+    <ClCompile Include="src\AnimationClip.cpp" />
+    <ClCompile Include="src\AnimationController.cpp" />
+    <ClCompile Include="src\Animations.cpp" />
+    <ClCompile Include="src\AnimationTarget.cpp" />
+    <ClCompile Include="src\AnimationValue.cpp" />
+    <ClCompile Include="src\AudioBuffer.cpp" />
+    <ClCompile Include="src\AudioController.cpp" />
+    <ClCompile Include="src\AudioListener.cpp" />
+    <ClCompile Include="src\AudioSource.cpp" />
+    <ClCompile Include="src\BoundingBox.cpp" />
+    <ClCompile Include="src\BoundingSphere.cpp" />
+    <ClCompile Include="src\Button.cpp" />
+    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\CheckBox.cpp" />
+    <ClCompile Include="src\Container.cpp" />
+    <ClCompile Include="src\Control.cpp" />
+    <ClCompile Include="src\ControlFactory.cpp" />
+    <ClCompile Include="src\Curve.cpp" />
+    <ClCompile Include="src\DebugNew.cpp" />
+    <ClCompile Include="src\DepthStencilTarget.cpp" />
+    <ClCompile Include="src\Drawable.cpp" />
+    <ClCompile Include="src\Effect.cpp" />
+    <ClCompile Include="src\FileSystem.cpp" />
+    <ClCompile Include="src\FlowLayout.cpp" />
+    <ClCompile Include="src\Font.cpp" />
+    <ClCompile Include="src\Form.cpp" />
+    <ClCompile Include="src\FrameBuffer.cpp" />
+    <ClCompile Include="src\Frustum.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\Gamepad.cpp" />
+    <ClCompile Include="src\gameplay-main-android.cpp" />
+    <ClCompile Include="src\gameplay-main-linux.cpp" />
+    <ClCompile Include="src\gameplay-main-windows.cpp" />
+    <ClCompile Include="src\HeightField.cpp" />
+    <ClCompile Include="src\Image.cpp" />
+    <ClCompile Include="src\ImageControl.cpp" />
+    <ClCompile Include="src\Joint.cpp" />
+    <ClCompile Include="src\JoystickControl.cpp" />
+    <ClCompile Include="src\Label.cpp" />
+    <ClCompile Include="src\Layout.cpp" />
+    <ClCompile Include="src\Light.cpp" />
+    <ClCompile Include="src\Logger.cpp" />
+    <ClCompile Include="src\lua\lua_AbsoluteLayout.cpp" />
+    <ClCompile Include="src\lua\lua_AIAgent.cpp" />
+    <ClCompile Include="src\lua\lua_AIAgentListener.cpp" />
+    <ClCompile Include="src\lua\lua_AIController.cpp" />
+    <ClCompile Include="src\lua\lua_AIMessage.cpp" />
+    <ClCompile Include="src\lua\lua_AIState.cpp" />
+    <ClCompile Include="src\lua\lua_AIStateListener.cpp" />
+    <ClCompile Include="src\lua\lua_AIStateMachine.cpp" />
+    <ClCompile Include="src\lua\lua_all_bindings.cpp" />
+    <ClCompile Include="src\lua\lua_Animation.cpp" />
+    <ClCompile Include="src\lua\lua_AnimationClip.cpp" />
+    <ClCompile Include="src\lua\lua_AnimationClipListener.cpp" />
+    <ClCompile Include="src\lua\lua_AnimationController.cpp" />
+    <ClCompile Include="src\lua\lua_AnimationTarget.cpp" />
+    <ClCompile Include="src\lua\lua_AnimationValue.cpp" />
+    <ClCompile Include="src\lua\lua_AudioBuffer.cpp" />
+    <ClCompile Include="src\lua\lua_AudioController.cpp" />
+    <ClCompile Include="src\lua\lua_AudioListener.cpp" />
+    <ClCompile Include="src\lua\lua_AudioSource.cpp" />
+    <ClCompile Include="src\lua\lua_BoundingBox.cpp" />
+    <ClCompile Include="src\lua\lua_BoundingSphere.cpp" />
+    <ClCompile Include="src\lua\lua_Bundle.cpp" />
+    <ClCompile Include="src\lua\lua_Button.cpp" />
+    <ClCompile Include="src\lua\lua_Camera.cpp" />
+    <ClCompile Include="src\lua\lua_CameraListener.cpp" />
+    <ClCompile Include="src\lua\lua_CheckBox.cpp" />
+    <ClCompile Include="src\lua\lua_Container.cpp" />
+    <ClCompile Include="src\lua\lua_Control.cpp" />
+    <ClCompile Include="src\lua\lua_ControlListener.cpp" />
+    <ClCompile Include="src\lua\lua_Curve.cpp" />
+    <ClCompile Include="src\lua\lua_DepthStencilTarget.cpp" />
+    <ClCompile Include="src\lua\lua_Drawable.cpp" />
+    <ClCompile Include="src\lua\lua_Effect.cpp" />
+    <ClCompile Include="src\lua\lua_FileSystem.cpp" />
+    <ClCompile Include="src\lua\lua_FlowLayout.cpp" />
+    <ClCompile Include="src\lua\lua_Font.cpp" />
+    <ClCompile Include="src\lua\lua_Form.cpp" />
+    <ClCompile Include="src\lua\lua_FrameBuffer.cpp" />
+    <ClCompile Include="src\lua\lua_Frustum.cpp" />
+    <ClCompile Include="src\lua\lua_Game.cpp" />
+    <ClCompile Include="src\lua\lua_Gamepad.cpp" />
+    <ClCompile Include="src\lua\lua_Gesture.cpp" />
+    <ClCompile Include="src\lua\lua_Global.cpp" />
+    <ClCompile Include="src\lua\lua_HeightField.cpp" />
+    <ClCompile Include="src\lua\lua_Image.cpp" />
+    <ClCompile Include="src\lua\lua_ImageControl.cpp" />
+    <ClCompile Include="src\lua\lua_Joint.cpp" />
+    <ClCompile Include="src\lua\lua_JoystickControl.cpp" />
+    <ClCompile Include="src\lua\lua_Keyboard.cpp" />
+    <ClCompile Include="src\lua\lua_Label.cpp" />
+    <ClCompile Include="src\lua\lua_Layout.cpp" />
+    <ClCompile Include="src\lua\lua_Light.cpp" />
+    <ClCompile Include="src\lua\lua_Logger.cpp" />
+    <ClCompile Include="src\lua\lua_Material.cpp" />
+    <ClCompile Include="src\lua\lua_MaterialParameter.cpp" />
+    <ClCompile Include="src\lua\lua_MathUtil.cpp" />
+    <ClCompile Include="src\lua\lua_Matrix.cpp" />
+    <ClCompile Include="src\lua\lua_Mesh.cpp" />
+    <ClCompile Include="src\lua\lua_MeshBatch.cpp" />
+    <ClCompile Include="src\lua\lua_MeshPart.cpp" />
+    <ClCompile Include="src\lua\lua_MeshSkin.cpp" />
+    <ClCompile Include="src\lua\lua_Model.cpp" />
+    <ClCompile Include="src\lua\lua_Mouse.cpp" />
+    <ClCompile Include="src\lua\lua_Node.cpp" />
+    <ClCompile Include="src\lua\lua_NodeCloneContext.cpp" />
+    <ClCompile Include="src\lua\lua_ParticleEmitter.cpp" />
+    <ClCompile Include="src\lua\lua_Pass.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsCharacter.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsCollisionObject.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsCollisionObjectCollisionListener.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsCollisionObjectCollisionPair.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsCollisionShape.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsCollisionShapeDefinition.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsConstraint.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsController.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsControllerHitFilter.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsControllerHitResult.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsControllerListener.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsFixedConstraint.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsGenericConstraint.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsGhostObject.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsHingeConstraint.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsRigidBody.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsRigidBodyParameters.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsSocketConstraint.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsSpringConstraint.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsVehicle.cpp" />
+    <ClCompile Include="src\lua\lua_PhysicsVehicleWheel.cpp" />
+    <ClCompile Include="src\lua\lua_Plane.cpp" />
+    <ClCompile Include="src\lua\lua_Platform.cpp" />
+    <ClCompile Include="src\lua\lua_Properties.cpp" />
+    <ClCompile Include="src\lua\lua_Quaternion.cpp" />
+    <ClCompile Include="src\lua\lua_RadioButton.cpp" />
+    <ClCompile Include="src\lua\lua_Ray.cpp" />
+    <ClCompile Include="src\lua\lua_Rectangle.cpp" />
+    <ClCompile Include="src\lua\lua_Ref.cpp" />
+    <ClCompile Include="src\lua\lua_RenderState.cpp" />
+    <ClCompile Include="src\lua\lua_RenderStateStateBlock.cpp" />
+    <ClCompile Include="src\lua\lua_RenderTarget.cpp" />
+    <ClCompile Include="src\lua\lua_Scene.cpp" />
+    <ClCompile Include="src\lua\lua_ScreenDisplayer.cpp" />
+    <ClCompile Include="src\lua\lua_Script.cpp" />
+    <ClCompile Include="src\lua\lua_ScriptController.cpp" />
+    <ClCompile Include="src\lua\lua_ScriptTarget.cpp" />
+    <ClCompile Include="src\lua\lua_ScriptTargetEvent.cpp" />
+    <ClCompile Include="src\lua\lua_ScriptTargetEventRegistry.cpp" />
+    <ClCompile Include="src\lua\lua_Slider.cpp" />
+    <ClCompile Include="src\lua\lua_Sprite.cpp" />
+    <ClCompile Include="src\lua\lua_SpriteBatch.cpp" />
+    <ClCompile Include="src\lua\lua_SpriteBatchSpriteVertex.cpp" />
+    <ClCompile Include="src\lua\lua_Technique.cpp" />
+    <ClCompile Include="src\lua\lua_Terrain.cpp" />
+    <ClCompile Include="src\lua\lua_TerrainPatch.cpp" />
+    <ClCompile Include="src\lua\lua_Text.cpp" />
+    <ClCompile Include="src\lua\lua_TextBox.cpp" />
+    <ClCompile Include="src\lua\lua_Texture.cpp" />
+    <ClCompile Include="src\lua\lua_TextureSampler.cpp" />
+    <ClCompile Include="src\lua\lua_Theme.cpp" />
+    <ClCompile Include="src\lua\lua_ThemeSideRegions.cpp" />
+    <ClCompile Include="src\lua\lua_ThemeStyle.cpp" />
+    <ClCompile Include="src\lua\lua_ThemeThemeImage.cpp" />
+    <ClCompile Include="src\lua\lua_ThemeUVs.cpp" />
+    <ClCompile Include="src\lua\lua_TileSet.cpp" />
+    <ClCompile Include="src\lua\lua_Touch.cpp" />
+    <ClCompile Include="src\lua\lua_Transform.cpp" />
+    <ClCompile Include="src\lua\lua_TransformListener.cpp" />
+    <ClCompile Include="src\lua\lua_Uniform.cpp" />
+    <ClCompile Include="src\lua\lua_Vector2.cpp" />
+    <ClCompile Include="src\lua\lua_Vector3.cpp" />
+    <ClCompile Include="src\lua\lua_Vector4.cpp" />
+    <ClCompile Include="src\lua\lua_VertexAttributeBinding.cpp" />
+    <ClCompile Include="src\lua\lua_VertexFormat.cpp" />
+    <ClCompile Include="src\lua\lua_VertexFormatElement.cpp" />
+    <ClCompile Include="src\lua\lua_VerticalLayout.cpp" />
+    <ClCompile Include="src\Material.cpp" />
+    <ClCompile Include="src\MathUtil.cpp" />
+    <ClCompile Include="src\MeshBatch.cpp" />
+    <ClCompile Include="src\Pass.cpp" />
+    <ClCompile Include="src\MaterialParameter.cpp" />
+    <ClCompile Include="src\Matrix.cpp" />
+    <ClCompile Include="src\Mesh.cpp" />
+    <ClCompile Include="src\MeshPart.cpp" />
+    <ClCompile Include="src\MeshSkin.cpp" />
+    <ClCompile Include="src\Model.cpp" />
+    <ClCompile Include="src\Node.cpp" />
+    <ClCompile Include="src\Bundle.cpp" />
+    <ClCompile Include="src\ParticleEmitter.cpp" />
+    <ClCompile Include="src\PhysicsCharacter.cpp" />
+    <ClCompile Include="src\PhysicsCollisionObject.cpp" />
+    <ClCompile Include="src\PhysicsCollisionShape.cpp" />
+    <ClCompile Include="src\PhysicsConstraint.cpp" />
+    <ClCompile Include="src\PhysicsController.cpp" />
+    <ClCompile Include="src\PhysicsFixedConstraint.cpp" />
+    <ClCompile Include="src\PhysicsGenericConstraint.cpp" />
+    <ClCompile Include="src\PhysicsGhostObject.cpp" />
+    <ClCompile Include="src\PhysicsHingeConstraint.cpp" />
+    <ClCompile Include="src\PhysicsRigidBody.cpp" />
+    <ClCompile Include="src\PhysicsSocketConstraint.cpp" />
+    <ClCompile Include="src\PhysicsSpringConstraint.cpp" />
+    <ClCompile Include="src\PhysicsVehicle.cpp" />
+    <ClCompile Include="src\PhysicsVehicleWheel.cpp" />
+    <ClCompile Include="src\Plane.cpp" />
+    <ClCompile Include="src\Platform.cpp" />
+    <ClCompile Include="src\PlatformAndroid.cpp" />
+    <ClCompile Include="src\PlatformLinux.cpp" />
+    <ClCompile Include="src\PlatformWindows.cpp" />
+    <ClCompile Include="src\Properties.cpp" />
+    <ClCompile Include="src\Quaternion.cpp" />
+    <ClCompile Include="src\RadioButton.cpp" />
+    <ClCompile Include="src\Ray.cpp" />
+    <ClCompile Include="src\Rectangle.cpp" />
+    <ClCompile Include="src\Ref.cpp" />
+    <ClCompile Include="src\RenderState.cpp" />
+    <ClCompile Include="src\RenderTarget.cpp" />
+    <ClCompile Include="src\Scene.cpp" />
+    <ClCompile Include="src\SceneLoader.cpp" />
+    <ClCompile Include="src\ScreenDisplayer.cpp" />
+    <ClCompile Include="src\Script.cpp" />
+    <ClCompile Include="src\ScriptController.cpp" />
+    <ClCompile Include="src\ScriptTarget.cpp" />
+    <ClCompile Include="src\Slider.cpp" />
+    <ClCompile Include="src\Sprite.cpp" />
+    <ClCompile Include="src\SpriteBatch.cpp" />
+    <ClCompile Include="src\Technique.cpp" />
+    <ClCompile Include="src\Terrain.cpp" />
+    <ClCompile Include="src\TerrainPatch.cpp" />
+    <ClCompile Include="src\Text.cpp" />
+    <ClCompile Include="src\TextBox.cpp" />
+    <ClCompile Include="src\Texture.cpp" />
+    <ClCompile Include="src\Theme.cpp" />
+    <ClCompile Include="src\ThemeStyle.cpp" />
+    <ClCompile Include="src\TileSet.cpp" />
+    <ClCompile Include="src\Transform.cpp" />
+    <ClCompile Include="src\UFont.cpp" />
+    <ClCompile Include="src\Vector2.cpp" />
+    <ClCompile Include="src\Vector3.cpp" />
+    <ClCompile Include="src\Vector4.cpp" />
+    <ClCompile Include="src\VertexAttributeBinding.cpp" />
+    <ClCompile Include="src\VertexFormat.cpp" />
+    <ClCompile Include="src\VerticalLayout.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\AbsoluteLayout.h" />
+    <ClInclude Include="src\AFont.h" />
+    <ClInclude Include="src\AIAgent.h" />
+    <ClInclude Include="src\AIController.h" />
+    <ClInclude Include="src\AIMessage.h" />
+    <ClInclude Include="src\AIState.h" />
+    <ClInclude Include="src\AIStateMachine.h" />
+    <ClInclude Include="src\Animation.h" />
+    <ClInclude Include="src\AnimationClip.h" />
+    <ClInclude Include="src\AnimationController.h" />
+    <ClInclude Include="src\Animations.h" />
+    <ClInclude Include="src\AnimationTarget.h" />
+    <ClInclude Include="src\AnimationValue.h" />
+    <ClInclude Include="src\AudioBuffer.h" />
+    <ClInclude Include="src\AudioController.h" />
+    <ClInclude Include="src\AudioListener.h" />
+    <ClInclude Include="src\AudioSource.h" />
+    <ClInclude Include="src\Base.h" />
+    <ClInclude Include="src\BoundingBox.h" />
+    <ClInclude Include="src\BoundingSphere.h" />
+    <ClInclude Include="src\Button.h" />
+    <ClInclude Include="src\Camera.h" />
+    <ClInclude Include="src\CheckBox.h" />
+    <ClInclude Include="src\Container.h" />
+    <ClInclude Include="src\Control.h" />
+    <ClInclude Include="src\ControlFactory.h" />
+    <ClInclude Include="src\Curve.h" />
+    <ClInclude Include="src\DebugNew.h" />
+    <ClInclude Include="src\DepthStencilTarget.h" />
+    <ClInclude Include="src\Drawable.h" />
+    <ClInclude Include="src\Effect.h" />
+    <ClInclude Include="src\FileSystem.h" />
+    <ClInclude Include="src\FlowLayout.h" />
+    <ClInclude Include="src\Font.h" />
+    <ClInclude Include="src\Form.h" />
+    <ClInclude Include="src\FrameBuffer.h" />
+    <ClInclude Include="src\Frustum.h" />
+    <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\Gamepad.h" />
+    <ClInclude Include="src\gameplay.h" />
+    <ClInclude Include="src\Gesture.h" />
+    <ClInclude Include="src\HeightField.h" />
+    <ClInclude Include="src\Image.h" />
+    <ClInclude Include="src\ImageControl.h" />
+    <ClInclude Include="src\Joint.h" />
+    <ClInclude Include="src\JoystickControl.h" />
+    <ClInclude Include="src\Keyboard.h" />
+    <ClInclude Include="src\Label.h" />
+    <ClInclude Include="src\Layout.h" />
+    <ClInclude Include="src\Light.h" />
+    <ClInclude Include="src\Logger.h" />
+    <ClInclude Include="src\lua\lua_AbsoluteLayout.h" />
+    <ClInclude Include="src\lua\lua_AIAgent.h" />
+    <ClInclude Include="src\lua\lua_AIAgentListener.h" />
+    <ClInclude Include="src\lua\lua_AIController.h" />
+    <ClInclude Include="src\lua\lua_AIMessage.h" />
+    <ClInclude Include="src\lua\lua_AIState.h" />
+    <ClInclude Include="src\lua\lua_AIStateListener.h" />
+    <ClInclude Include="src\lua\lua_AIStateMachine.h" />
+    <ClInclude Include="src\lua\lua_all_bindings.h" />
+    <ClInclude Include="src\lua\lua_Animation.h" />
+    <ClInclude Include="src\lua\lua_AnimationClip.h" />
+    <ClInclude Include="src\lua\lua_AnimationClipListener.h" />
+    <ClInclude Include="src\lua\lua_AnimationController.h" />
+    <ClInclude Include="src\lua\lua_AnimationTarget.h" />
+    <ClInclude Include="src\lua\lua_AnimationValue.h" />
+    <ClInclude Include="src\lua\lua_AudioBuffer.h" />
+    <ClInclude Include="src\lua\lua_AudioController.h" />
+    <ClInclude Include="src\lua\lua_AudioListener.h" />
+    <ClInclude Include="src\lua\lua_AudioSource.h" />
+    <ClInclude Include="src\lua\lua_BoundingBox.h" />
+    <ClInclude Include="src\lua\lua_BoundingSphere.h" />
+    <ClInclude Include="src\lua\lua_Bundle.h" />
+    <ClInclude Include="src\lua\lua_Button.h" />
+    <ClInclude Include="src\lua\lua_Camera.h" />
+    <ClInclude Include="src\lua\lua_CameraListener.h" />
+    <ClInclude Include="src\lua\lua_CheckBox.h" />
+    <ClInclude Include="src\lua\lua_Container.h" />
+    <ClInclude Include="src\lua\lua_Control.h" />
+    <ClInclude Include="src\lua\lua_ControlListener.h" />
+    <ClInclude Include="src\lua\lua_Curve.h" />
+    <ClInclude Include="src\lua\lua_DepthStencilTarget.h" />
+    <ClInclude Include="src\lua\lua_Drawable.h" />
+    <ClInclude Include="src\lua\lua_Effect.h" />
+    <ClInclude Include="src\lua\lua_FileSystem.h" />
+    <ClInclude Include="src\lua\lua_FlowLayout.h" />
+    <ClInclude Include="src\lua\lua_Font.h" />
+    <ClInclude Include="src\lua\lua_Form.h" />
+    <ClInclude Include="src\lua\lua_FrameBuffer.h" />
+    <ClInclude Include="src\lua\lua_Frustum.h" />
+    <ClInclude Include="src\lua\lua_Game.h" />
+    <ClInclude Include="src\lua\lua_Gamepad.h" />
+    <ClInclude Include="src\lua\lua_Gesture.h" />
+    <ClInclude Include="src\lua\lua_Global.h" />
+    <ClInclude Include="src\lua\lua_HeightField.h" />
+    <ClInclude Include="src\lua\lua_Image.h" />
+    <ClInclude Include="src\lua\lua_ImageControl.h" />
+    <ClInclude Include="src\lua\lua_Joint.h" />
+    <ClInclude Include="src\lua\lua_JoystickControl.h" />
+    <ClInclude Include="src\lua\lua_Keyboard.h" />
+    <ClInclude Include="src\lua\lua_Label.h" />
+    <ClInclude Include="src\lua\lua_Layout.h" />
+    <ClInclude Include="src\lua\lua_Light.h" />
+    <ClInclude Include="src\lua\lua_Logger.h" />
+    <ClInclude Include="src\lua\lua_Material.h" />
+    <ClInclude Include="src\lua\lua_MaterialParameter.h" />
+    <ClInclude Include="src\lua\lua_MathUtil.h" />
+    <ClInclude Include="src\lua\lua_Matrix.h" />
+    <ClInclude Include="src\lua\lua_Mesh.h" />
+    <ClInclude Include="src\lua\lua_MeshBatch.h" />
+    <ClInclude Include="src\lua\lua_MeshPart.h" />
+    <ClInclude Include="src\lua\lua_MeshSkin.h" />
+    <ClInclude Include="src\lua\lua_Model.h" />
+    <ClInclude Include="src\lua\lua_Mouse.h" />
+    <ClInclude Include="src\lua\lua_Node.h" />
+    <ClInclude Include="src\lua\lua_NodeCloneContext.h" />
+    <ClInclude Include="src\lua\lua_ParticleEmitter.h" />
+    <ClInclude Include="src\lua\lua_Pass.h" />
+    <ClInclude Include="src\lua\lua_PhysicsCharacter.h" />
+    <ClInclude Include="src\lua\lua_PhysicsCollisionObject.h" />
+    <ClInclude Include="src\lua\lua_PhysicsCollisionObjectCollisionListener.h" />
+    <ClInclude Include="src\lua\lua_PhysicsCollisionObjectCollisionPair.h" />
+    <ClInclude Include="src\lua\lua_PhysicsCollisionShape.h" />
+    <ClInclude Include="src\lua\lua_PhysicsCollisionShapeDefinition.h" />
+    <ClInclude Include="src\lua\lua_PhysicsConstraint.h" />
+    <ClInclude Include="src\lua\lua_PhysicsController.h" />
+    <ClInclude Include="src\lua\lua_PhysicsControllerHitFilter.h" />
+    <ClInclude Include="src\lua\lua_PhysicsControllerHitResult.h" />
+    <ClInclude Include="src\lua\lua_PhysicsControllerListener.h" />
+    <ClInclude Include="src\lua\lua_PhysicsFixedConstraint.h" />
+    <ClInclude Include="src\lua\lua_PhysicsGenericConstraint.h" />
+    <ClInclude Include="src\lua\lua_PhysicsGhostObject.h" />
+    <ClInclude Include="src\lua\lua_PhysicsHingeConstraint.h" />
+    <ClInclude Include="src\lua\lua_PhysicsRigidBody.h" />
+    <ClInclude Include="src\lua\lua_PhysicsRigidBodyParameters.h" />
+    <ClInclude Include="src\lua\lua_PhysicsSocketConstraint.h" />
+    <ClInclude Include="src\lua\lua_PhysicsSpringConstraint.h" />
+    <ClInclude Include="src\lua\lua_PhysicsVehicle.h" />
+    <ClInclude Include="src\lua\lua_PhysicsVehicleWheel.h" />
+    <ClInclude Include="src\lua\lua_Plane.h" />
+    <ClInclude Include="src\lua\lua_Platform.h" />
+    <ClInclude Include="src\lua\lua_Properties.h" />
+    <ClInclude Include="src\lua\lua_Quaternion.h" />
+    <ClInclude Include="src\lua\lua_RadioButton.h" />
+    <ClInclude Include="src\lua\lua_Ray.h" />
+    <ClInclude Include="src\lua\lua_Rectangle.h" />
+    <ClInclude Include="src\lua\lua_Ref.h" />
+    <ClInclude Include="src\lua\lua_RenderState.h" />
+    <ClInclude Include="src\lua\lua_RenderStateStateBlock.h" />
+    <ClInclude Include="src\lua\lua_RenderTarget.h" />
+    <ClInclude Include="src\lua\lua_Scene.h" />
+    <ClInclude Include="src\lua\lua_ScreenDisplayer.h" />
+    <ClInclude Include="src\lua\lua_Script.h" />
+    <ClInclude Include="src\lua\lua_ScriptController.h" />
+    <ClInclude Include="src\lua\lua_ScriptTarget.h" />
+    <ClInclude Include="src\lua\lua_ScriptTargetEvent.h" />
+    <ClInclude Include="src\lua\lua_ScriptTargetEventRegistry.h" />
+    <ClInclude Include="src\lua\lua_Slider.h" />
+    <ClInclude Include="src\lua\lua_Sprite.h" />
+    <ClInclude Include="src\lua\lua_SpriteBatch.h" />
+    <ClInclude Include="src\lua\lua_SpriteBatchSpriteVertex.h" />
+    <ClInclude Include="src\lua\lua_Technique.h" />
+    <ClInclude Include="src\lua\lua_Terrain.h" />
+    <ClInclude Include="src\lua\lua_TerrainPatch.h" />
+    <ClInclude Include="src\lua\lua_Text.h" />
+    <ClInclude Include="src\lua\lua_TextBox.h" />
+    <ClInclude Include="src\lua\lua_Texture.h" />
+    <ClInclude Include="src\lua\lua_TextureSampler.h" />
+    <ClInclude Include="src\lua\lua_Theme.h" />
+    <ClInclude Include="src\lua\lua_ThemeSideRegions.h" />
+    <ClInclude Include="src\lua\lua_ThemeStyle.h" />
+    <ClInclude Include="src\lua\lua_ThemeThemeImage.h" />
+    <ClInclude Include="src\lua\lua_ThemeUVs.h" />
+    <ClInclude Include="src\lua\lua_TileSet.h" />
+    <ClInclude Include="src\lua\lua_Touch.h" />
+    <ClInclude Include="src\lua\lua_Transform.h" />
+    <ClInclude Include="src\lua\lua_TransformListener.h" />
+    <ClInclude Include="src\lua\lua_Uniform.h" />
+    <ClInclude Include="src\lua\lua_Vector2.h" />
+    <ClInclude Include="src\lua\lua_Vector3.h" />
+    <ClInclude Include="src\lua\lua_Vector4.h" />
+    <ClInclude Include="src\lua\lua_VertexAttributeBinding.h" />
+    <ClInclude Include="src\lua\lua_VertexFormat.h" />
+    <ClInclude Include="src\lua\lua_VertexFormatElement.h" />
+    <ClInclude Include="src\lua\lua_VerticalLayout.h" />
+    <ClInclude Include="src\Material.h" />
+    <ClInclude Include="src\MathUtil.h" />
+    <ClInclude Include="src\MeshBatch.h" />
+    <ClInclude Include="src\Mouse.h" />
+    <ClInclude Include="src\Pass.h" />
+    <ClInclude Include="src\MaterialParameter.h" />
+    <ClInclude Include="src\Matrix.h" />
+    <ClInclude Include="src\Mesh.h" />
+    <ClInclude Include="src\MeshPart.h" />
+    <ClInclude Include="src\MeshSkin.h" />
+    <ClInclude Include="src\Model.h" />
+    <ClInclude Include="src\Node.h" />
+    <ClInclude Include="src\Bundle.h" />
+    <ClInclude Include="src\ParticleEmitter.h" />
+    <ClInclude Include="src\PhysicsCharacter.h" />
+    <ClInclude Include="src\PhysicsCollisionObject.h" />
+    <ClInclude Include="src\PhysicsCollisionShape.h" />
+    <ClInclude Include="src\PhysicsConstraint.h" />
+    <ClInclude Include="src\PhysicsController.h" />
+    <ClInclude Include="src\PhysicsFixedConstraint.h" />
+    <ClInclude Include="src\PhysicsGenericConstraint.h" />
+    <ClInclude Include="src\PhysicsGhostObject.h" />
+    <ClInclude Include="src\PhysicsHingeConstraint.h" />
+    <ClInclude Include="src\PhysicsRigidBody.h" />
+    <ClInclude Include="src\PhysicsSocketConstraint.h" />
+    <ClInclude Include="src\PhysicsSpringConstraint.h" />
+    <ClInclude Include="src\PhysicsVehicle.h" />
+    <ClInclude Include="src\PhysicsVehicleWheel.h" />
+    <ClInclude Include="src\Plane.h" />
+    <ClInclude Include="src\Platform.h" />
+    <ClInclude Include="src\Properties.h" />
+    <ClInclude Include="src\Quaternion.h" />
+    <ClInclude Include="src\RadioButton.h" />
+    <ClInclude Include="src\Ray.h" />
+    <ClInclude Include="src\Rectangle.h" />
+    <ClInclude Include="src\Ref.h" />
+    <ClInclude Include="src\RenderState.h" />
+    <ClInclude Include="src\RenderTarget.h" />
+    <ClInclude Include="src\Scene.h" />
+    <ClInclude Include="src\SceneLoader.h" />
+    <ClInclude Include="src\ScreenDisplayer.h" />
+    <ClInclude Include="src\Script.h" />
+    <ClInclude Include="src\ScriptController.h" />
+    <ClInclude Include="src\ScriptTarget.h" />
+    <ClInclude Include="src\Slider.h" />
+    <ClInclude Include="src\Sprite.h" />
+    <ClInclude Include="src\SpriteBatch.h" />
+    <ClInclude Include="src\Stream.h" />
+    <ClInclude Include="src\Technique.h" />
+    <ClInclude Include="src\Terrain.h" />
+    <ClInclude Include="src\TerrainPatch.h" />
+    <ClInclude Include="src\Text.h" />
+    <ClInclude Include="src\TextBox.h" />
+    <ClInclude Include="src\Texture.h" />
+    <ClInclude Include="src\Theme.h" />
+    <ClInclude Include="src\ThemeStyle.h" />
+    <ClInclude Include="src\TileSet.h" />
+    <ClInclude Include="src\TimeListener.h" />
+    <ClInclude Include="src\Touch.h" />
+    <ClInclude Include="src\Transform.h" />
+    <ClInclude Include="src\UFont.h" />
+    <ClInclude Include="src\Vector2.h" />
+    <ClInclude Include="src\Vector3.h" />
+    <ClInclude Include="src\Vector4.h" />
+    <ClInclude Include="src\VertexAttributeBinding.h" />
+    <ClInclude Include="src\VertexFormat.h" />
+    <ClInclude Include="src\VerticalLayout.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\materials\terrain.material" />
+    <None Include="res\shaders\colored.frag" />
+    <None Include="res\shaders\colored.vert" />
+    <None Include="res\shaders\font.frag" />
+    <None Include="res\shaders\font.vert" />
+    <None Include="res\shaders\form.frag" />
+    <None Include="res\shaders\form.vert" />
+    <None Include="res\shaders\lighting.frag" />
+    <None Include="res\shaders\lighting.vert" />
+    <None Include="res\shaders\skinning-none.vert" />
+    <None Include="res\shaders\skinning.vert" />
+    <None Include="res\shaders\sprite.frag" />
+    <None Include="res\shaders\sprite.vert" />
+    <None Include="res\shaders\terrain.frag" />
+    <None Include="res\shaders\terrain.vert" />
+    <None Include="res\shaders\textured.frag" />
+    <None Include="res\shaders\textured.vert" />
+    <None Include="res\ui\default.theme" />
+    <None Include="src\BoundingBox.inl" />
+    <None Include="src\BoundingSphere.inl" />
+    <None Include="src\Game.inl" />
+    <None Include="src\Image.inl" />
+    <None Include="src\MathUtil.inl" />
+    <None Include="src\MathUtilNeon.inl" />
+    <None Include="src\Matrix.inl" />
+    <None Include="src\MeshBatch.inl" />
+    <None Include="src\Plane.inl" />
+    <None Include="src\Quaternion.inl" />
+    <None Include="src\Ray.inl" />
+    <None Include="src\ScriptController.inl" />
+    <None Include="src\Vector2.inl" />
+    <None Include="src\Vector3.inl" />
+    <None Include="src\Vector4.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\PhysicsConstraint.inl" />
+    <None Include="src\PhysicsFixedConstraint.inl" />
+    <None Include="src\PhysicsGenericConstraint.inl" />
+    <None Include="src\PhysicsRigidBody.inl" />
+    <None Include="src\PhysicsSpringConstraint.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\ui\default-theme.png" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{93556551-2F27-312C-9740-823C99E913D0}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{1032BA4B-57EB-4348-9E03-29DD63E80E4A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <Platform>Win32</Platform>
-    <ProjectName>gameplay</ProjectName>
-    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+    <RootNamespace>gameplay</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugMem|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugMem|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup>
-    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\StudioProjects\GamePlay\gameplay\Debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">gameplay.dir\Debug\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">gameplay</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\StudioProjects\GamePlay\gameplay\Release\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">gameplay.dir\Release\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">gameplay</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\StudioProjects\GamePlay\gameplay\MinSizeRel\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">gameplay.dir\MinSizeRel\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">gameplay</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\StudioProjects\GamePlay\gameplay\RelWithDebInfo\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">gameplay.dir\RelWithDebInfo\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">gameplay</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>Debug</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugMem|x64'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IntDir>$(Configuration)\</IntDir>
+    <OutDir>$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>/c/msys64/android-make-toolchian/arm-27-toolchain/sysroot/usr/include;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include-fixed;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include;C:\StudioProjects\GamePlay\gameplay\src;C:\StudioProjects\GamePlay\gameplay\..\external-deps\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) --pipe --sysroot=/c/msys64/android-make-toolchian/arm-27-toolchain/sysroot -pthread -frtti -fexceptions -lstdc++</AdditionalOptions>
-      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <CppLanguageStandard>c++11</CppLanguageStandard>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;GP_USE_GAMEPAD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;..\external-deps\include;$(DXSDK_DIR)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>
+      </RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>__ANDROID_API__=27;__GXX_EXPERIMENTAL_CXX0X__;WIN32;_WINDOWS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_DEBUG;__ANDROID_API__=27;__GXX_EXPERIMENTAL_CXX0X__;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\StudioProjects\GamePlay\gameplay\src;C:\StudioProjects\GamePlay\gameplay\..\external-deps\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
-    <Midl>
-      <AdditionalIncludeDirectories>C:\StudioProjects\GamePlay\gameplay\src;C:\StudioProjects\GamePlay\gameplay\..\external-deps\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
-      <HeaderFileName>%(Filename).h</HeaderFileName>
-      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
-      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
-    </Midl>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
     <Lib>
-      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <TargetMachine>MachineX64</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugMem|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>/c/msys64/android-make-toolchian/arm-27-toolchain/sysroot/usr/include;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include-fixed;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include;C:\StudioProjects\GamePlay\gameplay\src;C:\StudioProjects\GamePlay\gameplay\..\external-deps\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) --pipe --sysroot=/c/msys64/android-make-toolchian/arm-27-toolchain/sysroot -pthread -frtti -fexceptions -lstdc++</AdditionalOptions>
-      <AssemblerListingLocation>Release/</AssemblerListingLocation>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <CppLanguageStandard>c++11</CppLanguageStandard>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <Optimization>MaxSpeed</Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>__ANDROID_API__=27;__GXX_EXPERIMENTAL_CXX0X__;WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DebugInformationFormat></DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;GP_USE_GAMEPAD;GP_USE_MEM_LEAK_DETECTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;..\external-deps\include;$(MSBuildProgramFiles32)\Microsoft DirectX SDK (June 2010)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;__ANDROID_API__=27;__GXX_EXPERIMENTAL_CXX0X__;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\StudioProjects\GamePlay\gameplay\src;C:\StudioProjects\GamePlay\gameplay\..\external-deps\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
-    <Midl>
-      <AdditionalIncludeDirectories>C:\StudioProjects\GamePlay\gameplay\src;C:\StudioProjects\GamePlay\gameplay\..\external-deps\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
-      <HeaderFileName>%(Filename).h</HeaderFileName>
-      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
-      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
-    </Midl>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
     <Lib>
-      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <Verbose>
+      </Verbose>
     </Lib>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>/c/msys64/android-make-toolchian/arm-27-toolchain/sysroot/usr/include;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include-fixed;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include;C:\StudioProjects\GamePlay\gameplay\src;C:\StudioProjects\GamePlay\gameplay\..\external-deps\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) --pipe --sysroot=/c/msys64/android-make-toolchian/arm-27-toolchain/sysroot -pthread -frtti -fexceptions -lstdc++</AdditionalOptions>
-      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <CppLanguageStandard>c++11</CppLanguageStandard>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <Optimization>MinSpace</Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>__ANDROID_API__=27;__GXX_EXPERIMENTAL_CXX0X__;WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DebugInformationFormat></DebugInformationFormat>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;GP_USE_GAMEPAD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;..\external-deps\include;$(MSBuildProgramFiles32)\Microsoft DirectX SDK (June 2010)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;__ANDROID_API__=27;__GXX_EXPERIMENTAL_CXX0X__;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\StudioProjects\GamePlay\gameplay\src;C:\StudioProjects\GamePlay\gameplay\..\external-deps\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
-    <Midl>
-      <AdditionalIncludeDirectories>C:\StudioProjects\GamePlay\gameplay\src;C:\StudioProjects\GamePlay\gameplay\..\external-deps\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
-      <HeaderFileName>%(Filename).h</HeaderFileName>
-      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
-      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
-    </Midl>
-    <Lib>
-      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
-    </Lib>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
-    <ClCompile>
-      <AdditionalIncludeDirectories>/c/msys64/android-make-toolchian/arm-27-toolchain/sysroot/usr/include;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include-fixed;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include;/c/Users/gjp/AppData/Local/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include;C:\StudioProjects\GamePlay\gameplay\src;C:\StudioProjects\GamePlay\gameplay\..\external-deps\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) --pipe --sysroot=/c/msys64/android-make-toolchian/arm-27-toolchain/sysroot -pthread -frtti -fexceptions -lstdc++</AdditionalOptions>
-      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <CppLanguageStandard>c++11</CppLanguageStandard>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <Optimization>MaxSpeed</Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>__ANDROID_API__=27;__GXX_EXPERIMENTAL_CXX0X__;WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ObjectFileName>$(IntDir)</ObjectFileName>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;__ANDROID_API__=27;__GXX_EXPERIMENTAL_CXX0X__;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\StudioProjects\GamePlay\gameplay\src;C:\StudioProjects\GamePlay\gameplay\..\external-deps\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
-    <Midl>
-      <AdditionalIncludeDirectories>C:\StudioProjects\GamePlay\gameplay\src;C:\StudioProjects\GamePlay\gameplay\..\external-deps\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
-      <HeaderFileName>%(Filename).h</HeaderFileName>
-      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
-      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
-    </Midl>
-    <Lib>
-      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
-    </Lib>
-  </ItemDefinitionGroup>
-  <ItemGroup>
-    <CustomBuild Include="C:\StudioProjects\GamePlay\gameplay\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/StudioProjects/GamePlay/gameplay/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files (x86)\cmake\bin\cmake.exe" -HC:/StudioProjects/GamePlay/gameplay -BC:/StudioProjects/GamePlay/gameplay --check-stamp-file C:/StudioProjects/GamePlay/gameplay/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/StudioProjects/GamePlay/gameplay/CMakeLists.txt;C:\StudioProjects\GamePlay\gameplay\CMakeLists.txt;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeSystem.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeFindBinUtils.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeFindBinUtils.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCXXCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeRCCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeRCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestRCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCCompilerABI.c;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Internal\FeatureTesting.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\feature_tests.cxx;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCXXCompiler.cmake;C:\StudioProjects\GamePlay\gameplay\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\StudioProjects\GamePlay\gameplay\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/StudioProjects/GamePlay/gameplay/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files (x86)\cmake\bin\cmake.exe" -HC:/StudioProjects/GamePlay/gameplay -BC:/StudioProjects/GamePlay/gameplay --check-stamp-file C:/StudioProjects/GamePlay/gameplay/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/StudioProjects/GamePlay/gameplay/CMakeLists.txt;C:\StudioProjects\GamePlay\gameplay\CMakeLists.txt;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeSystem.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeFindBinUtils.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeFindBinUtils.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCXXCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeRCCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeRCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestRCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCCompilerABI.c;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Internal\FeatureTesting.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\feature_tests.cxx;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCXXCompiler.cmake;C:\StudioProjects\GamePlay\gameplay\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\StudioProjects\GamePlay\gameplay\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/StudioProjects/GamePlay/gameplay/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files (x86)\cmake\bin\cmake.exe" -HC:/StudioProjects/GamePlay/gameplay -BC:/StudioProjects/GamePlay/gameplay --check-stamp-file C:/StudioProjects/GamePlay/gameplay/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/StudioProjects/GamePlay/gameplay/CMakeLists.txt;C:\StudioProjects\GamePlay\gameplay\CMakeLists.txt;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeSystem.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeFindBinUtils.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeFindBinUtils.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCXXCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeRCCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeRCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestRCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCCompilerABI.c;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Internal\FeatureTesting.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\feature_tests.cxx;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCXXCompiler.cmake;C:\StudioProjects\GamePlay\gameplay\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\StudioProjects\GamePlay\gameplay\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/StudioProjects/GamePlay/gameplay/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files (x86)\cmake\bin\cmake.exe" -HC:/StudioProjects/GamePlay/gameplay -BC:/StudioProjects/GamePlay/gameplay --check-stamp-file C:/StudioProjects/GamePlay/gameplay/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/StudioProjects/GamePlay/gameplay/CMakeLists.txt;C:\StudioProjects\GamePlay\gameplay\CMakeLists.txt;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeSystem.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeFindBinUtils.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeFindBinUtils.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCXXCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeRCCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeRCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestRCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCCompilerABI.c;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Internal\FeatureTesting.cmake;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\feature_tests.cxx;C:\Program Files (x86)\cmake\share\cmake-3.10\Modules\CMakeCXXCompiler.cmake.in;C:\StudioProjects\GamePlay\gameplay\CMakeFiles\3.10.2\CMakeCXXCompiler.cmake;C:\StudioProjects\GamePlay\gameplay\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\StudioProjects\GamePlay\gameplay\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\AbsoluteLayout.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\AbsoluteLayout.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\AIAgent.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\AIAgent.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\AIController.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\AIController.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\AIMessage.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\AIMessage.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\AIState.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\AIState.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\AIStateMachine.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\AIStateMachine.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Animation.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Animation.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\AnimationClip.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\AnimationClip.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\AnimationController.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\AnimationController.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\AnimationTarget.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\AnimationTarget.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\AnimationValue.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\AnimationValue.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\AudioBuffer.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\AudioBuffer.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\AudioController.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\AudioController.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\AudioListener.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\AudioListener.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\AudioSource.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\AudioSource.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Base.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\BoundingBox.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\BoundingBox.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\BoundingBox.inl" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\BoundingSphere.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\BoundingSphere.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\BoundingSphere.inl" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Bundle.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Bundle.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Button.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Button.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Camera.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Camera.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\CheckBox.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\CheckBox.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Container.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Container.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Control.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Control.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\ControlFactory.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\ControlFactory.cpp"  />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Curve.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Curve.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Conversion.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Conversion.cpp"  />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\DebugNew.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\DebugNew.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\DepthStencilTarget.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\DepthStencilTarget.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Drawable.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Drawable.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Effect.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Effect.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\FileSystem.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\FileSystem.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\FlowLayout.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\FlowLayout.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Font.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Font.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\AFont.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\AFont.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\UFont.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\UFont.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Form.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Form.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\FrameBuffer.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\FrameBuffer.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Frustum.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Frustum.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Game.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Game.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Game.inl" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Gamepad.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Gamepad.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\gameplay-main-android.cpp"  />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\gameplay-main-linux.cpp"  />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\gameplay-main-windows.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Gesture.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\HeightField.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\HeightField.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Image.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Image.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Image.inl" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\ImageControl.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\ImageControl.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Joint.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Joint.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\JoystickControl.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\JoystickControl.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Label.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Label.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Layout.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Layout.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Light.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Light.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Logger.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Logger.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Material.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Material.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\MaterialParameter.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\MaterialParameter.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\MathUtil.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\MathUtil.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\MathUtil.inl" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\MathUtilNeon.inl" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Matrix.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Matrix.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Matrix.inl" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Mesh.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Mesh.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\MeshBatch.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\MeshBatch.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\MeshBatch.inl" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\MeshPart.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\MeshPart.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\MeshSkin.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\MeshSkin.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Model.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Model.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Node.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Node.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\ParticleEmitter.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\ParticleEmitter.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Pass.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Pass.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsCharacter.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsCharacter.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsCollisionObject.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsCollisionObject.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsCollisionShape.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsCollisionShape.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsConstraint.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsConstraint.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsController.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsController.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsFixedConstraint.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsFixedConstraint.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsGenericConstraint.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsGenericConstraint.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsGhostObject.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsGhostObject.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsHingeConstraint.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsHingeConstraint.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsRigidBody.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsRigidBody.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsSocketConstraint.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsSocketConstraint.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsSpringConstraint.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsSpringConstraint.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsVehicle.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsVehicle.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PhysicsVehicleWheel.cpp"  />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Plane.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Plane.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Plane.inl" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Platform.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Platform.cpp"  />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PlatformAndroid.cpp"  />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PlatformLinux.cpp"  />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\PlatformWindows.cpp"  />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Properties.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Properties.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Quaternion.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Quaternion.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Quaternion.inl" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\RadioButton.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\RadioButton.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Ray.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Ray.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Ray.inl" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Rectangle.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Rectangle.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Ref.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Ref.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\RenderState.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\RenderState.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\RenderTarget.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\RenderTarget.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Scene.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Scene.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\SceneLoader.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\SceneLoader.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\ScreenDisplayer.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\ScreenDisplayer.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Script.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Script.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\ScriptController.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\ScriptController.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\ScriptController.inl" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\ScriptTarget.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\ScriptTarget.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Slider.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Slider.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Sprite.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Sprite.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\SpriteBatch.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\SpriteBatch.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Technique.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Technique.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Terrain.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Terrain.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\TerrainPatch.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\TerrainPatch.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Text.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Text.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\TextBox.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\TextBox.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Texture.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Texture.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Theme.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Theme.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\ThemeStyle.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\ThemeStyle.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\TileSet.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\TileSet.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Transform.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Transform.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Vector2.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Vector2.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Vector2.inl" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Vector3.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Vector3.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Vector3.inl" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\Vector4.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Vector4.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\Vector4.inl" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\VertexAttributeBinding.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\VertexAttributeBinding.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\VertexFormat.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\VertexFormat.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\VerticalLayout.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\VerticalLayout.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_all_bindings.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_all_bindings.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AbsoluteLayout.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AbsoluteLayout.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AIAgent.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AIAgent.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AIAgentListener.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AIAgentListener.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AIController.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AIController.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AIMessage.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AIMessage.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AIState.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AIState.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AIStateListener.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AIStateListener.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AIStateMachine.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AIStateMachine.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Animation.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Animation.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AnimationClip.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AnimationClip.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AnimationClipListener.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AnimationClipListener.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AnimationController.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AnimationController.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AnimationTarget.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AnimationTarget.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AnimationValue.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AnimationValue.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AudioBuffer.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AudioBuffer.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AudioController.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AudioController.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AudioListener.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AudioListener.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AudioSource.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_AudioSource.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_BoundingBox.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_BoundingBox.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_BoundingSphere.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_BoundingSphere.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Bundle.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Bundle.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Button.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Button.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Camera.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Camera.h" />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_CameraListener.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_CameraListener.cpp"  />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_CheckBox.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_CheckBox.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Container.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Container.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Control.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Control.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ControlListener.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ControlListener.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Curve.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Curve.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_DepthStencilTarget.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_DepthStencilTarget.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Drawable.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Drawable.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Effect.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Effect.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_FileSystem.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_FileSystem.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_FlowLayout.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_FlowLayout.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Font.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Font.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Form.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Form.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_FrameBuffer.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_FrameBuffer.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Frustum.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Frustum.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Game.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Game.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Gamepad.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Gamepad.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Gesture.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Gesture.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Global.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Global.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_HeightField.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_HeightField.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Image.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Image.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ImageControl.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ImageControl.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Joint.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Joint.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_JoystickControl.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_JoystickControl.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Keyboard.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Keyboard.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Label.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Label.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Layout.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Layout.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Light.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Light.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Logger.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Logger.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Material.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Material.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_MaterialParameter.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_MaterialParameter.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_MathUtil.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_MathUtil.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Matrix.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Matrix.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Mesh.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Mesh.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_MeshBatch.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_MeshBatch.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_MeshPart.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_MeshPart.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_MeshSkin.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_MeshSkin.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Model.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Model.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Mouse.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Mouse.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Node.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Node.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_NodeCloneContext.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_NodeCloneContext.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ParticleEmitter.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ParticleEmitter.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Pass.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Pass.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsCharacter.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsCharacter.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsCollisionObject.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsCollisionObject.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsCollisionObjectCollisionListener.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsCollisionObjectCollisionListener.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsCollisionObjectCollisionPair.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsCollisionObjectCollisionPair.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsCollisionShape.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsCollisionShape.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsCollisionShapeDefinition.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsCollisionShapeDefinition.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsConstraint.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsConstraint.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsController.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsController.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsControllerHitFilter.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsControllerHitFilter.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsControllerHitResult.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsControllerHitResult.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsControllerListener.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsControllerListener.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsFixedConstraint.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsFixedConstraint.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsGenericConstraint.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsGenericConstraint.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsGhostObject.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsGhostObject.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsHingeConstraint.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsHingeConstraint.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsRigidBody.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsRigidBody.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsRigidBodyParameters.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsRigidBodyParameters.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsSocketConstraint.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsSocketConstraint.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsSpringConstraint.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsSpringConstraint.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsVehicle.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsVehicle.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsVehicleWheel.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_PhysicsVehicleWheel.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Plane.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Plane.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Platform.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Platform.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Properties.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Properties.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Quaternion.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Quaternion.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_RadioButton.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_RadioButton.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Ray.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Ray.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Rectangle.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Rectangle.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Ref.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Ref.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_RenderState.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_RenderState.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_RenderStateStateBlock.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_RenderStateStateBlock.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_RenderTarget.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_RenderTarget.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Scene.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Scene.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ScreenDisplayer.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ScreenDisplayer.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Script.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Script.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ScriptController.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ScriptController.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ScriptTarget.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ScriptTarget.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ScriptTargetEvent.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ScriptTargetEvent.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ScriptTargetEventRegistry.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ScriptTargetEventRegistry.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Slider.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Slider.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Sprite.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Sprite.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_SpriteBatch.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_SpriteBatch.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_SpriteBatchSpriteVertex.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_SpriteBatchSpriteVertex.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Technique.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Technique.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Terrain.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Terrain.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_TerrainPatch.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_TerrainPatch.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Text.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Text.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_TextBox.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_TextBox.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Texture.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Texture.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_TextureSampler.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_TextureSampler.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Theme.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Theme.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ThemeSideRegions.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ThemeSideRegions.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ThemeStyle.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ThemeStyle.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ThemeThemeImage.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ThemeThemeImage.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ThemeUVs.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_ThemeUVs.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_TileSet.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_TileSet.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Touch.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Touch.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Transform.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Transform.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_TransformListener.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_TransformListener.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Uniform.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Uniform.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Vector2.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Vector2.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Vector3.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Vector3.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Vector4.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_Vector4.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_VertexAttributeBinding.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_VertexAttributeBinding.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_VertexFormat.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_VertexFormat.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_VertexFormatElement.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_VertexFormatElement.h" />
-    <ClCompile Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_VerticalLayout.cpp"  />
-    <ClInclude Include="C:\StudioProjects\GamePlay\gameplay\src\lua\lua_VerticalLayout.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="C:\StudioProjects\GamePlay\gameplay\ZERO_CHECK.vcxproj">
-      <Project>{454BB358-AA1C-33B0-BD0E-54622800A699}</Project>
-      <Name>ZERO_CHECK</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

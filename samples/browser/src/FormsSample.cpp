@@ -180,8 +180,7 @@ void FormsSample::createSampleForm()
 void FormsSample::update(float elapsedTime)
 {
     float speedFactor = 0.001f * elapsedTime;
-    if(_gamepad == NULL)
-        return ;
+
     _gamepad->getJoystickValues(0, &_joysticks[0]);
     _gamepad->getJoystickValues(1, &_joysticks[1]);
 
@@ -255,8 +254,8 @@ void FormsSample::render(float elapsedTime)
     {
         _activeForm->draw();
     }
-    if(_gamepad)
-        _gamepad->draw();
+
+    _gamepad->draw();
 }
 
 void FormsSample::touchEvent(Touch::TouchEvent evt, int x, int y, unsigned int contactIndex)

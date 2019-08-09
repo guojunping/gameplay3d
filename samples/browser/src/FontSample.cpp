@@ -67,7 +67,8 @@ void FontSample::initialize()
     //                            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n" \
     //                            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n" \
     //                            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
-	_sampleString = std::string("a的撒发射 点发射点发射点发射点发射点法\n发啊但是发射点发射点发生的风格风格十分abcdefABCDEFhigklmnHIJKLMN" );
+	//_sampleString = std::string("a你好o0世界1");
+	_sampleString = std::string("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12345678910字体在创建字形轮廓时，字体创建者所使用的假象的正方形。他可以将此想象成一个画字符的平面。它是用来将轮廓线缩放到指定文本尺寸的参考；它的尺寸越大，可以达到更大的字形分辨率。a");
     // Create and listen to form.
 	_form = Form::create("res/common/text.form");
     static_cast<Button*>(_form->getControl("fontButton"))->addListener(this, Control::Listener::CLICK);

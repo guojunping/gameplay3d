@@ -503,6 +503,12 @@ extern void print(const char* format, ...)
     va_list argptr;
     va_start(argptr, format);
     int sz = vfprintf(stderr, format, argptr);
+	if (sz < 0) {
+		//OutputDebugStringA(strerror(errno));
+		char buf[4096];
+		vsprintf(buf, format, argptr);
+		OutputDebugStringA(buf);
+	}
     if (sz > 0)
     {
         char* buf = new char[sz + 1];

@@ -145,6 +145,11 @@ public:
      */
     Animation* getAnimation(const char* id = NULL) const;
 
+	/*
+	* 
+	*/
+	Animation* addAnimationChannel(Animation* animation, Properties* animationProperties);
+
 protected:
 
     /**

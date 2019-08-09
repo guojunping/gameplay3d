@@ -11,23 +11,36 @@ namespace gameplay
 
 extern void splitURL(const std::string& url, std::string* file, std::string* id);
 
-AnimationClip::AnimationClip(const char* id, Animation* animation, unsigned long startTime, unsigned long endTime)
+AnimationClip::AnimationClip(const char* id, Animation* animation, unsigned long startTime, unsigned long endTime, int startChannelIndex, int channelCount)
     : _id(id), _animation(animation), _startTime(startTime), _endTime(endTime), _duration(_endTime - _startTime), 
       _stateBits(0x00), _repeatCount(1.0f), _loopBlendTime(0), _activeDuration(_duration * _repeatCount), _speed(1.0f), _timeStarted(0), 
       _elapsedTime(0), _crossFadeToClip(NULL), _crossFadeOutElapsed(0), _crossFadeOutDuration(0), _blendWeight(1.0f),
-      _beginListeners(NULL), _endListeners(NULL), _listeners(NULL), _listenerItr(NULL)
+      _beginListeners(NULL), _endListeners(NULL), _listeners(NULL), _listenerItr(NULL), _takeInfo(NULL)
 {
     GP_REGISTER_SCRIPT_EVENTS();
 
     GP_ASSERT(_animation);
     GP_ASSERT(0 <= startTime && startTime <= _animation->_duration && 0 <= endTime && endTime <= _animation->_duration);
+	
 
-    for (size_t i = 0, count = _animation->_channels.size(); i < count; i++)
-    {
-        GP_ASSERT(_animation->_channels[i]);
-        GP_ASSERT(_animation->_channels[i]->getCurve());
-        _values.push_back(new AnimationValue(_animation->_channels[i]->getCurve()->getComponentCount()));
-    }
+	if (startChannelIndex == -1 || channelCount == 0) {
+		for (size_t i = 0, count = _animation->_channels.size(); i < count; i++)
+		{
+			GP_ASSERT(_animation->_channels[i]);
+			GP_ASSERT(_animation->_channels[i]->getCurve());
+			_values.push_back(new AnimationValue(_animation->_channels[i]->getCurve()->getComponentCount()));
+		}
+	}
+	else {
+		GP_ASSERT(startChannelIndex + channelCount <= _animation->_channels.size());
+		for (size_t i = startChannelIndex, count = startChannelIndex + channelCount; i < count; i++)
+		{
+			GP_ASSERT(_animation->_channels[i]);
+			GP_ASSERT(_animation->_channels[i]->getCurve());
+			_values.push_back(new AnimationValue(_animation->_channels[i]->getCurve()->getComponentCount()));
+		}
+	}
+
 }
 
 AnimationClip::~AnimationClip()
@@ -148,6 +161,14 @@ unsigned long AnimationClip::getActiveDuration() const
 unsigned long AnimationClip::getDuration() const
 {
     return _duration;
+}
+
+void AnimationClip::setTakeInfo(Animation::TakeInfo *takeInfo) {
+	_takeInfo = takeInfo;
+}
+
+Animation::TakeInfo* AnimationClip::getTakeInfo(){
+	return _takeInfo;
 }
 
 void AnimationClip::setSpeed(float speed)
@@ -555,27 +576,51 @@ bool AnimationClip::update(float elapsedTime)
     Animation::Channel* channel = NULL;
     AnimationValue* value = NULL;
     AnimationTarget* target = NULL;
-    size_t channelCount = _animation->_channels.size();
-    float percentageStart = (float)_startTime / (float)_animation->_duration;
-    float percentageEnd = (float)_endTime / (float)_animation->_duration;
-    float percentageBlend = (float)_loopBlendTime / (float)_animation->_duration;
-    for (size_t i = 0; i < channelCount; i++)
-    {
-        channel = _animation->_channels[i];
-        GP_ASSERT(channel);
-        target = channel->_target;
-        GP_ASSERT(target);
-        value = _values[i];
-        GP_ASSERT(value);
+	if (_takeInfo == NULL) {
+		size_t channelCount = _animation->_channels.size();
+		float percentageStart = (float)_startTime / (float)_animation->_duration;
+		float percentageEnd = (float)_endTime / (float)_animation->_duration;
+		float percentageBlend = (float)_loopBlendTime / (float)_animation->_duration;
+		for (size_t i = 0; i < channelCount; i++)
+		{
+			channel = _animation->_channels[i];
+			GP_ASSERT(channel);
+			target = channel->_target;
+			GP_ASSERT(target);
+			value = _values[i];
+			GP_ASSERT(value);
 
-        // Evaluate the point on Curve
-        GP_ASSERT(channel->getCurve());
-        channel->getCurve()->evaluate(percentComplete, percentageStart, percentageEnd, percentageBlend, value->_value);
+			// Evaluate the point on Curve
+			GP_ASSERT(channel->getCurve());
+			channel->getCurve()->evaluate(percentComplete, percentageStart, percentageEnd, percentageBlend, value->_value);
 
-        // Set the animation value on the target property.
-        target->setAnimationPropertyValue(channel->_propertyId, value, _blendWeight);
-    }
+			// Set the animation value on the target property.
+			target->setAnimationPropertyValue(channel->_propertyId, value, _blendWeight);
+		}
+	}
+	else {
+		size_t channelCount = _takeInfo->_channelCount;
+		float percentageStart = 0.0f;
+		float percentageEnd = 1.0f;
+		float percentageBlend = (float)_loopBlendTime / (float)_takeInfo->_duration;
+		//float percentageBlend = 1.0f;
+		for (size_t i = 0; i < channelCount; i++)
+		{
+			channel = _animation->_channels[_takeInfo->_startChannelIndex + i];
+			GP_ASSERT(channel);
+			target = channel->_target;
+			GP_ASSERT(target);
+			value = _values[i];
+			GP_ASSERT(value);
 
+			// Evaluate the point on Curve
+			GP_ASSERT(channel->getCurve());
+			channel->getCurve()->evaluate(percentComplete, percentageStart, percentageEnd, percentageBlend, value->_value);
+
+			// Set the animation value on the target property.
+			target->setAnimationPropertyValue(channel->_propertyId, value, _blendWeight);
+		}
+	}
     // When ended. Probably should move to it's own method so we can call it when the clip is ended early.
     if (isClipStateBitSet(CLIP_IS_MARKED_FOR_REMOVAL_BIT) || !isClipStateBitSet(CLIP_IS_STARTED_BIT))
     {

@@ -104,7 +104,7 @@ static bool isWhitespace(char c)
     }
 }
 
-static unsigned int findNextWord(const std::wstring& text, unsigned int from, bool backwards)
+static unsigned int findNextWord(const std::string& text, unsigned int from, bool backwards)
 {
     int pos = (int)from;
     if (backwards)
@@ -135,52 +135,6 @@ static unsigned int findNextWord(const std::wstring& text, unsigned int from, bo
     }
 
     return (unsigned int)pos;
-}
-
-static int Unicode2UTF8(unsigned wchar, char *utf8)
-{
-	int len = 0;
-	if (wchar < 0xC0)
-	{
-		utf8[len++] = (char)wchar;
-	}
-	else if (wchar < 0x800)
-	{
-		utf8[len++] = 0xc0 | (wchar >> 6);
-		utf8[len++] = 0x80 | (wchar & 0x3f);
-	}
-	else if (wchar < 0x10000)
-	{
-		utf8[len++] = 0xe0 | (wchar >> 12);
-		utf8[len++] = 0x80 | ((wchar >> 6) & 0x3f);
-		utf8[len++] = 0x80 | (wchar & 0x3f);
-	}
-	else if (wchar < 0x200000)
-	{
-		utf8[len++] = 0xf0 | ((int)wchar >> 18);
-		utf8[len++] = 0x80 | ((wchar >> 12) & 0x3f);
-		utf8[len++] = 0x80 | ((wchar >> 6) & 0x3f);
-		utf8[len++] = 0x80 | (wchar & 0x3f);
-	}
-	else if (wchar < 0x4000000)
-	{
-		utf8[len++] = 0xf8 | ((int)wchar >> 24);
-		utf8[len++] = 0x80 | ((wchar >> 18) & 0x3f);
-		utf8[len++] = 0x80 | ((wchar >> 12) & 0x3f);
-		utf8[len++] = 0x80 | ((wchar >> 6) & 0x3f);
-		utf8[len++] = 0x80 | (wchar & 0x3f);
-	}
-	else if (wchar < 0x80000000)
-	{
-		utf8[len++] = 0xfc | ((int)wchar >> 30);
-		utf8[len++] = 0x80 | ((wchar >> 24) & 0x3f);
-		utf8[len++] = 0x80 | ((wchar >> 18) & 0x3f);
-		utf8[len++] = 0x80 | ((wchar >> 12) & 0x3f);
-		utf8[len++] = 0x80 | ((wchar >> 6) & 0x3f);
-		utf8[len++] = 0x80 | (wchar & 0x3f);
-	}
-
-	return len;
 }
 
 bool TextBox::keyEvent(Keyboard::KeyEvent evt, int key)
@@ -216,14 +170,14 @@ bool TextBox::keyEvent(Keyboard::KeyEvent evt, int key)
                     if (_caretLocation < _text.length())
                     {
                         int newCaretLocation;
-                        //if (_ctrlPressed)
-                        //{
-                        //    newCaretLocation = findNextWord(getDisplayedText(), _caretLocation, false);
-                        //}
-                        //else
-                       // {
+                        if (_ctrlPressed)
+                        {
+                            newCaretLocation = findNextWord(getDisplayedText(), _caretLocation, false);
+                        }
+                        else
+                        {
                             newCaretLocation = _caretLocation + 1;
-                        //}
+                        }
                         _text.erase(_caretLocation, newCaretLocation - _caretLocation);
                         notifyListeners(Control::Listener::TEXT_CHANGED);
                     }
@@ -238,14 +192,14 @@ bool TextBox::keyEvent(Keyboard::KeyEvent evt, int key)
                 {
                     if (_caretLocation > 0)
                     {
-                        //if (_ctrlPressed)
-                        //{
-                        //    _caretLocation = findNextWord(getDisplayedText(), _caretLocation, true);
-                        //}
-                        //else
-                        //{
+                        if (_ctrlPressed)
+                        {
+                            _caretLocation = findNextWord(getDisplayedText(), _caretLocation, true);
+                        }
+                        else
+                        {
                             --_caretLocation;
-                        //}
+                        }
                     }
                     break;
                 }
@@ -253,14 +207,14 @@ bool TextBox::keyEvent(Keyboard::KeyEvent evt, int key)
                 {
                     if (_caretLocation < _text.length())
                     {
-                        //if (_ctrlPressed)
-                        //{
-                        //    _caretLocation = findNextWord(getDisplayedText(), _caretLocation, false);
-                        //}
-                        //else
-                        //{
+                        if (_ctrlPressed)
+                        {
+                            _caretLocation = findNextWord(getDisplayedText(), _caretLocation, false);
+                        }
+                        else
+                        {
                             ++_caretLocation;
-                        //}
+                        }
                     }
                     break;
                 }
@@ -279,92 +233,16 @@ bool TextBox::keyEvent(Keyboard::KeyEvent evt, int key)
                     if (_caretLocation > 0)
                     {
                         int newCaretLocation;
-                        //if (_ctrlPressed)
-                        //{
-                        //    newCaretLocation = findNextWord(getDisplayedText(), _caretLocation, true);
-                        //}
-                        //else
-                        //{
+                        if (_ctrlPressed)
+                        {
+                            newCaretLocation = findNextWord(getDisplayedText(), _caretLocation, true);
+                        }
+                        else
+                        {
                             newCaretLocation = _caretLocation - 1;
-                        //}
-						if (this->_multiLines) {
-							Control::State state = getState();
-							Font* font = getFont(state);
-							bool rear = _caretLocation == _text.length() ? true : false;
-							if (_text.at(_caretLocation - 1) == L'\n') {
-								newCaretLocation--;
-							}
-							_text.erase(newCaretLocation, _caretLocation - newCaretLocation);
-							if (!rear) {
-								unsigned int fontSize = getFontSize(state);
-								unsigned int outWidth, outHeight;
-
-								int i = newCaretLocation;
-								int j = newCaretLocation;
-								for (; j > 0; j--) {
-									if (_text.at(j) == L'\n' || _text.at(j) == L'\r') {
-										break;
-									}
-								}
-
-								while (i < _text.length()) {
-									if (_text.at(i) == L'\n') {
-										_text.erase(i, 1);
-										continue;
-									}
-									i++;
-								}
-								i = newCaretLocation + 1;
-								while(true){
-									if (i >= _text.length()) {
-										font->measureText(_text.substr(j, i - j).c_str(), fontSize, &outWidth, &outHeight);
-										if (_textBounds.width < outWidth) {
-											font->measureText(_text.substr(j, i - j - 1).c_str(), fontSize, &outWidth, &outHeight);
-											if (_textBounds.width > outWidth) {
-												_text.insert(i - 1, 1, L'\n');
-											}
-											else {
-												_text.insert(i - 2, 1, L'\n');
-											}
-										}
-										break;
-									}
-									if (_text.at(i) == L'\r') {
-										font->measureText(_text.substr(j, i - j).c_str(), fontSize, &outWidth, &outHeight);
-										if (_textBounds.width < outWidth) {
-											font->measureText(_text.substr(j, i - j - 1).c_str(), fontSize, &outWidth, &outHeight);
-											if (_textBounds.width > outWidth) {
-												_text.insert(i - 1, 1, L'\n');
-												j = i - 1;
-												i = j + 1;
-											}
-											else {
-												_text.insert(i - 2, 1, L'\n');
-												j = i - 2;
-												i = j + 1;
-											}
-										}
-										else {
-											j = i + 1;
-											i = j + 1;
-										}
-									}
-
-									font->measureText(_text.substr(j, i - j).c_str(), fontSize, &outWidth, &outHeight);
-									if (_textBounds.width < outWidth) {
-										_text.insert(i - 1, 1, L'\n');
-										j = i;
-									}
-									i++;
-								}
-							}
-							_caretLocation = newCaretLocation;
-						}
-						else {
-							_text.erase(newCaretLocation, _caretLocation - newCaretLocation);
-							_caretLocation = newCaretLocation;
-						}
-                   
+                        }
+                        _text.erase(newCaretLocation, _caretLocation - newCaretLocation);
+                        _caretLocation = newCaretLocation;
                         notifyListeners(Control::Listener::TEXT_CHANGED);
                     }
                     break;
@@ -378,63 +256,9 @@ bool TextBox::keyEvent(Keyboard::KeyEvent evt, int key)
             switch (key)
             {
                 case Keyboard::KEY_RETURN:
-				{
-					// TODO: Support multi-line
-					//notifyListeners(Control::Listener::ACTIVATED);
-					if (this->_multiLines) {
-						_text.insert(_caretLocation, 1, L'\r');
-						_caretLocation++;
-					}
-					bool rear = _caretLocation == _text.length() ? true : false;
-					if (!rear && this->_multiLines) {
-						if (this->_multiLines) {
-							Control::State state = getState();
-							Font* font = getFont(state);
-
-							unsigned int fontSize = getFontSize(state);
-							unsigned int outWidth, outHeight;
-
-							int i = _caretLocation;
-							int j = _caretLocation;
-
-							while (i < _text.length()) {
-								if (_text.at(i) == L'\n') {
-									_text.erase(i, 1);
-									continue;
-								}
-								i++;
-							}
-							i = j + 1;
-							while (true) {
-								if (i >= _text.length()) {
-									font->measureText(_text.substr(j, i - j).c_str(), fontSize, &outWidth, &outHeight);
-									if (_textBounds.width < outWidth) {
-										font->measureText(_text.substr(j, i - j - 1).c_str(), fontSize, &outWidth, &outHeight);
-										if (_textBounds.width > outWidth) {
-											_text.insert(i - 1, 1, L'\n');
-										}
-										else {
-											_text.insert(i - 2, 1, L'\n');
-										}
-									}
-									break;
-								}
-								if (_text.at(i) == L'\r') {
-									j = i + 1;
-									i = j + 1;
-								}
-
-								font->measureText(_text.substr(j, i - j).c_str(), fontSize, &outWidth, &outHeight);
-								if (_textBounds.width < outWidth) {
-									_text.insert(i - 1, 1, L'\n');
-									j = i;
-								}
-								i++;
-							}
-						}
-					}
-					break;
-				}
+                    // TODO: Support multi-line
+                    notifyListeners(Control::Listener::ACTIVATED);
+                    break;
                 case Keyboard::KEY_ESCAPE:
                     break;
                 case Keyboard::KEY_BACKSPACE:
@@ -445,96 +269,17 @@ bool TextBox::keyEvent(Keyboard::KeyEvent evt, int key)
                 default:
                 {
                     // Insert character into string, only if our font supports this character
+                    if (_shiftPressed && islower(key))
+                    {
+                        key = toupper(key);
+                    }
+                    // Insert character into string, only if our font supports this character
                     if (_font && _font->isCharacterSupported(key))
                     {
-						if (_shiftPressed && islower(key))
-						{
-							key = toupper(key);
-						}
                         if (_caretLocation <= _text.length())
                         {
-							Control::State state = getState();
-							Font* font = getFont(state);
-							bool rear = _caretLocation == _text.length() ? true : false;
-							_text.insert(_caretLocation, 1, key);
-
-							this->_multiLines = true;
-							unsigned int fontSize = getFontSize(state);
-							unsigned int outWidth, outHeight;
-							if (rear) {
-								font->measureText(_text.c_str(), fontSize, &outWidth, &outHeight);
-								if (_textBounds.width < outWidth && _textBounds.height >= outHeight) {
-									if (this->_multiLines) {
-										_text.insert(_text.length() - 1, 1, L'\n');
-										font->measureText(_text.c_str(), fontSize, &outWidth, &outHeight);
-										if (_textBounds.width < outWidth || _textBounds.height < outHeight) {
-											_text = _text.erase(_text.length() - 2);
-											font->measureText(_text.c_str(), fontSize, &outWidth, &outHeight);
-											if (_textBounds.width < outWidth || _textBounds.height < outHeight) {
-												_text.erase(_text.length() - 1);
-											}
-											break;
-										}
-										if (rear)
-											++_caretLocation;
-									}
-									else {
-										_text.erase(_text.length() - 1);
-										break;
-									}
-								}
-							}
-							else 
-							{
-								if (this->_multiLines) {
-									int i = _caretLocation;
-									int j = _caretLocation;
-									for (; j > 0; j--) {
-										if (_text.at(j) == L'\n' || _text.at(j) == L'\r') {
-											break;
-										}
-									}
-									while (true) {
-										for (; i < _text.length(); i++) {
-											if (_text.at(i) == L'\n' || _text.at(i) == L'\r') {
-												break;
-											}
-										}
-										if (i >= _text.length()) {
-											font->measureText(_text.substr(j, i - j).c_str(), fontSize, &outWidth, &outHeight);
-											if (_textBounds.width < outWidth) {
-												font->measureText(_text.substr(j, i - j - 1).c_str(), fontSize, &outWidth, &outHeight);
-												if (_textBounds.width > outWidth) {
-													_text.insert(i - 1, 1, L'\n');
-												}
-												else {
-													_text.insert(i - 2, 1, L'\n');
-												}
-											}
-											break;
-										}
-
-										font->measureText(_text.substr(j, i - j).c_str(), fontSize, &outWidth, &outHeight);
-										while (_textBounds.width < outWidth) {
-											if (_text.at(i) == '\n') {
-												char c = _text.at(i - 1);
-												_text[i - 1] = '\n';
-												_text[i] = c;
-												i--;
-												font->measureText(_text.substr(j, i - j).c_str(), fontSize, &outWidth, &outHeight);
-											}
-											else if (_text.at(i) == '\r') {
-												_text.insert(i - 2, 1, '\n');
-												i = i - 2;
-												font->measureText(_text.substr(j, i - j).c_str(), fontSize, &outWidth, &outHeight);
-											}
-										}
-										i++;
-										j = i;
-									}
-								}
-							}
-							++_caretLocation;
+                            _text.insert(_caretLocation, 1, (char)key);
+                            ++_caretLocation;
                         }
 
                         notifyListeners(Control::Listener::TEXT_CHANGED);
@@ -636,7 +381,7 @@ unsigned int TextBox::drawText(Form* form, const Rectangle& clip)
     if (_font)
     {
         Control::State state = getState();
-        const std::wstring displayedText = getDisplayedText();
+        const std::string displayedText = getDisplayedText();
         unsigned int fontSize = getFontSize(state);
 
         SpriteBatch* batch = _font->getSpriteBatch(fontSize);
@@ -671,7 +416,7 @@ void TextBox::setCaretLocation(int x, int y)
     unsigned int fontSize = getFontSize(state);
     Font::Justify textAlignment = getTextAlignment(state);
     bool rightToLeft = getTextRightToLeft(state);
-    const std::wstring displayedText = getDisplayedText();
+    const std::string displayedText = getDisplayedText();
 
     int index = font->getIndexAtLocation(displayedText.c_str(), _textBounds, fontSize, point, &point,
             textAlignment, true, rightToLeft);
@@ -777,9 +522,9 @@ TextBox::InputMode TextBox::getInputMode(const char* inputMode)
     return TextBox::TEXT;
 }
 
-std::wstring TextBox::getDisplayedText() const
+std::string TextBox::getDisplayedText() const
 {
-    std::wstring displayedText;
+    std::string displayedText;
     switch (_inputMode) {
         case PASSWORD:
             displayedText.insert((size_t)0, _text.length(), _passwordChar);

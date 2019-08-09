@@ -38,9 +38,6 @@ namespace gameplay
 		void drawText(const char* text, int x, int y, const Vector4& color, unsigned int size = 0,
 			bool rightToLeft = false);
 
-		void drawText(const wchar_t* text, int x, int y, const Vector4& color, unsigned int size = 0,
-			bool rightToLeft = false);
-
 		/**
 		* Draws the specified text in a solid color, with a scaling factor.
 		*
@@ -55,9 +52,6 @@ namespace gameplay
 		* @param rightToLeft Whether to draw text from right to left.
 		*/
 		void drawText(const char* text, int x, int y, float red, float green, float blue, float alpha, unsigned int size = 0,
-			bool rightToLeft = false);
-
-		void drawText(const wchar_t* text, int x, int y, float red, float green, float blue, float alpha, unsigned int size = 0,
 			bool rightToLeft = false);
 
 		/**
@@ -77,10 +71,6 @@ namespace gameplay
 			Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool rightToLeft = false,
 			const Rectangle& clip = Rectangle(0, 0, 0, 0));
 
-		void drawText(const wchar_t* text, const Rectangle& area, const Vector4& color, unsigned int size = 0,
-			Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool rightToLeft = false,
-			const Rectangle& clip = Rectangle(0, 0, 0, 0));
-
 		/**
 		* Measures a string's width and height without alignment, wrapping or clipping.
 		*
@@ -89,9 +79,7 @@ namespace gameplay
 		* @param widthOut Destination for the text's width.
 		* @param heightOut Destination for the text's height.
 		*/
-		virtual void measureText(const char* text, unsigned int size, unsigned int* widthOut, unsigned int* heightOut);
-
-		virtual void measureText(const wchar_t* text, unsigned int size, unsigned int* widthOut, unsigned int* heightOut);
+		void measureText(const char* text, unsigned int size, unsigned int* widthOut, unsigned int* heightOut);
 
 		/**
 		* Measures a string's bounding box after alignment, wrapping and clipping within a viewport.
@@ -105,10 +93,7 @@ namespace gameplay
 		* @param ignoreClip Whether to clip 'out' to the viewport.  Set false for the bounds of what would actually be drawn
 		*                within the given viewport; true for bounds that are guaranteed to fit the entire string of text.
 		*/
-		virtual void measureText(const char* text, const Rectangle& clip, unsigned int size, Rectangle* out,
-			Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool ignoreClip = false);
-
-		virtual void measureText(const wchar_t* text, const Rectangle& clip, unsigned int size, Rectangle* out,
+		void measureText(const char* text, const Rectangle& clip, unsigned int size, Rectangle* out,
 			Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool ignoreClip = false);
 
 		/**
@@ -117,25 +102,14 @@ namespace gameplay
 		int getIndexAtLocation(const char* text, const Rectangle& clip, unsigned int size, const Vector2& inLocation,
 			Vector2* outLocation, Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool rightToLeft = false);
 
-		int getIndexAtLocation(const wchar_t* text, const Rectangle& clip, unsigned int size, const Vector2& inLocation,
-			Vector2* outLocation, Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool rightToLeft = false);
-
 		/**
 		* Get the location of the character at the given index.
 		*/
 		void getLocationAtIndex(const char* text, const Rectangle& clip, unsigned int size, Vector2* outLocation,
 			const unsigned int destIndex, Justify justify = ALIGN_TOP_LEFT, bool wrap = true,
 			bool rightToLeft = false);
-
-		void getLocationAtIndex(const wchar_t* text, const Rectangle& clip, unsigned int size, Vector2* outLocation,
-			const unsigned int destIndex, Justify justify = ALIGN_TOP_LEFT, bool wrap = true,
-			bool rightToLeft = false);
-
 	protected:
 		int getIndexOrLocation(const char* text, const Rectangle& clip, unsigned int size, const Vector2& inLocation, Vector2* outLocation,
-			const int destIndex = -1, Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool rightToLeft = false);
-
-		int getIndexOrLocation(const wchar_t* text, const Rectangle& clip, unsigned int size, const Vector2& inLocation, Vector2* outLocation,
 			const int destIndex = -1, Justify justify = ALIGN_TOP_LEFT, bool wrap = true, bool rightToLeft = false);
 
 	private:
@@ -181,22 +155,12 @@ namespace gameplay
 		void getMeasurementInfo(const char* text, const Rectangle& area, unsigned int size, Justify justify, bool wrap, bool rightToLeft,
 			std::vector<int>* xPositions, int* yPosition, std::vector<unsigned int>* lineLengths);
 
-		void getMeasurementInfo(const wchar_t* text, const Rectangle& area, unsigned int size, Justify justify, bool wrap, bool rightToLeft,
-			std::vector<int>* xPositions, int* yPosition, std::vector<unsigned int>* lineLengths);
 
-		unsigned int getTokenWidth(const char* token, unsigned int length, unsigned int size, float scale);
-
-		unsigned int getTokenWidth(const wchar_t* token, unsigned int length, unsigned int size, float scale);
+		unsigned int getTokenWidth(const char* token, unsigned length, unsigned int size, float scale);
 
 		unsigned int getReversedTokenLength(const char* token, const char* bufStart);
 
-		unsigned int getReversedTokenLength(const wchar_t* token, const wchar_t* bufStart);
-
 		int handleDelimiters(const char** token, const unsigned int size, const int iteration, const int areaX, int* xPos, int* yPos, unsigned int* lineLength,
-			std::vector<int>::const_iterator* xPositionsIt, std::vector<int>::const_iterator xPositionsEnd, unsigned int* charIndex = NULL,
-			const Vector2* stopAtPosition = NULL, const int currentIndex = -1, const int destIndex = -1);
-
-		int handleDelimiters(const wchar_t** token, const unsigned int size, const int iteration, const int areaX, int* xPos, int* yPos, unsigned int* lineLength,
 			std::vector<int>::const_iterator* xPositionsIt, std::vector<int>::const_iterator xPositionsEnd, unsigned int* charIndex = NULL,
 			const Vector2* stopAtPosition = NULL, const int currentIndex = -1, const int destIndex = -1);
 

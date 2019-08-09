@@ -61,7 +61,7 @@ static bool endsWith(const char* str, const char* suffix, bool ignoreCase)
 
 Scene::Scene()
     : _id(""), _activeCamera(NULL), _firstNode(NULL), _lastNode(NULL), _nodeCount(0), _bindAudioListenerToCamera(true), 
-      _nextItr(NULL), _nextReset(true)
+      _nextItr(NULL), _nextReset(true) ,_animations(NULL)
 {
     __sceneList.push_back(this);
 }
@@ -87,6 +87,10 @@ Scene::~Scene()
     std::vector<Scene*>::iterator itr = std::find(__sceneList.begin(), __sceneList.end(), this);
     if (itr != __sceneList.end())
         __sceneList.erase(itr);
+
+	if (_animations) {
+		SAFE_RELEASE(_animations);
+	}
 }
 
 Scene* Scene::create(const char* id)
@@ -381,11 +385,6 @@ const Vector3& Scene::getAmbientColor() const
     return _ambientColor;
 }
 
-const Vector3* Scene::getAmbientColorPtr() const
-{
-    return &_ambientColor;
-}
-
 void Scene::setAmbientColor(float red, float green, float blue)
 {
     _ambientColor.set(red, green, blue);
@@ -461,6 +460,85 @@ bool Scene::isNodeVisible(Node* node)
     {
         return node->getBoundingSphere().intersects(_activeCamera->getFrustum());
     }
+}
+
+void Scene::addAnimation(Animation* animation) {
+	GP_ASSERT(animation);
+
+	if (_animations == NULL) {
+		_animations = new Animations();
+	}
+
+	_animations->add(animation);
+}
+
+unsigned int Scene::getAnimationCount() const {
+	if (_animations == NULL) {
+		return 0;
+	}
+
+	return _animations->getAnimationCount();
+}
+
+unsigned int Scene::getAnimations(std::vector<Animation*>& anmiations) const {
+	if (_animations) {
+		_animations->getAnimations(anmiations);
+	}
+	// Search immediate children first.
+	for (Node* child = getFirstNode(); child != NULL; child = child->getNextSibling())
+	{
+		child->getAnimations(anmiations);
+	}
+	return anmiations.size();
+}
+
+Animation* Scene::findAnimation(const std::string & id) const {
+	if (_animations) {
+		Animation* anim = _animations->findAnimation(id);
+		if (anim != NULL) {
+			return anim;
+		}
+	}
+
+	// Search immediate children first.
+	for (Node* child = getFirstNode(); child != NULL; child = child->getNextSibling())
+	{
+		Animation* anim = child->findAnimation(id);
+		if (anim != NULL) {
+			return anim;
+		}
+	}
+	return NULL;
+}
+
+void Scene::removeAnimation(Animation* animation) {
+	if (_animations) {
+		if (_animations->removeAnimation(animation)) {
+			return ;
+		}
+	}
+	// Search immediate children first.
+	for (Node* child = this->getFirstNode(); child != NULL; child = child->getNextSibling())
+	{
+		if (child->removeAnimation(animation)) {
+			return ;
+		}
+	}
+}
+
+void Scene::removeAnimation(const std::string & id) {
+	if (_animations) {
+		if (_animations->removeAnimation(id)) {
+			return;
+		}
+	}
+	// Search immediate children first.
+	for (Node* child = this->getFirstNode(); child != NULL; child = child->getNextSibling())
+	{
+		if (child->removeAnimation(id)) {
+			return;
+		}
+	}
 }
 
 }

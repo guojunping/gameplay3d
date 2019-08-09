@@ -166,7 +166,9 @@ copy ..\..\gameplay\res\logo_powered_white.png res</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="game.config" />
+    <None Include="game.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="icon.png" />
     <None Include="res\airstrip.gpb" />
     <None Include="res\background.ogg" />

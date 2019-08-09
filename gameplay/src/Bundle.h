@@ -393,7 +393,7 @@ private:
      * 
      * @param scene The scene to load the animations into.
      */
-    void readAnimation(Scene* scene);
+	Animation* readAnimation(Scene* scene, Animation* animation);
 
     /**
      * Reads an "animations" object from the current file position and all of the animations contained in it.

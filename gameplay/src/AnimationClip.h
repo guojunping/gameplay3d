@@ -325,7 +325,7 @@ private:
     /**
      * Constructor.
      */
-    AnimationClip(const char* id, Animation* animation, unsigned long startTime, unsigned long endTime);
+    AnimationClip(const char* id, Animation* animation, unsigned long startTime, unsigned long endTime, int startChannelIndex = -1,int channelCount = 0);
 
     /**
      * Constructor.
@@ -386,11 +386,15 @@ private:
      */
     AnimationClip* clone(Animation* animation) const;
 
+	void setTakeInfo(Animation::TakeInfo *takeInfo);
+	Animation::TakeInfo *getTakeInfo();
+
     std::string _id;                                    // AnimationClip ID.
     Animation* _animation;                              // The Animation this clip is created from.
     unsigned long _startTime;                           // Start time of the clip.
     unsigned long _endTime;                             // End time of the clip.
     unsigned long _duration;                            // The total duration.
+	Animation::TakeInfo  *_takeInfo;                     // The takeInfo;
     unsigned char _stateBits;                           // Bit flag used to keep track of the clip's current state.
     float _repeatCount;                                 // The clip's repeat count.
     unsigned int _loopBlendTime;                        // Time spent blending the last frame of animation with the first frame, when looping.

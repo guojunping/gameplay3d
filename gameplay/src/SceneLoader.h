@@ -112,7 +112,7 @@ private:
 
     void calculateNodesWithMeshRigidBodies(const Properties* sceneProperties);
 
-    void createAnimations();
+    void createAnimations(Scene *scene);
 
     PhysicsConstraint* loadGenericConstraint(const Properties* constraint, PhysicsRigidBody* rbA, PhysicsRigidBody* rbB);
 

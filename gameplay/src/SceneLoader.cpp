@@ -124,7 +124,7 @@ Scene* SceneLoader::loadInternal(const char* url)
         _scene->setAmbientColor(vec3.x, vec3.y, vec3.z);
 
     // Create animations for scene
-    createAnimations();
+    createAnimations(_scene);
 
     // Find the physics properties object.
     Properties* physics = NULL;
@@ -867,7 +867,7 @@ void SceneLoader::parseNode(Properties* ns, SceneNode* parent, const std::string
     }
 }
 
-void SceneLoader::createAnimations()
+void SceneLoader::createAnimations(Scene *scene)
 {
     // Create the scene animations.
     for (size_t i = 0, count = _animations.size(); i < count; i++)
@@ -888,8 +888,14 @@ void SceneLoader::createAnimations()
             GP_ERROR("The referenced animation data at url '%s' failed to load.", _animations[i]._url.c_str());
             continue;
         }
-
-        node->createAnimation(_animations[i]._animationID, p);
+		Animation *anim = scene->findAnimation(_animations[i]._animationID);
+		if (anim == NULL) {
+			 anim = node->createAnimation(_animations[i]._animationID, p);
+			 scene->addAnimation(anim);
+		}
+		else {
+			node->addAnimationChannel(anim, p);
+		}
     }
 }
 

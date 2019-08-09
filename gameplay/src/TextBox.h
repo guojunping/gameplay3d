@@ -204,7 +204,7 @@ protected:
      *
      * @return The text to be displayed.
      */
-    std::wstring getDisplayedText() const;
+    std::string getDisplayedText() const;
 
     /**
      * The current location of the TextBox's caret.
@@ -251,7 +251,6 @@ protected:
      */
     bool _shiftPressed = false;
 
-	bool _multiLines = false;
 private:
 
     /**

@@ -269,8 +269,14 @@ Bundle::Reference* Bundle::find(const char* id) const
             // Found a match
             return &_references[i];
         }
+		
     }
-
+#ifdef _DEBUG
+	for (unsigned int i = 0; i < _referenceCount; ++i)
+	{
+		GP_WARN("ref id = '%s',  type = %u.", _references[i].id.c_str(), _references[i].type );
+	}
+#endif
     return NULL;
 }
 
@@ -538,25 +544,32 @@ Node* Bundle::loadNode(const char* id, Scene* sceneContext)
 
             for (unsigned int j = 0; j < animationCount; j++)
             {
-                const std::string id = readString(_stream);
+                const std::string animationId = readString(_stream);
 
                 // Read the number of animation channels in this animation.
                 unsigned int animationChannelCount;
                 if (!read(&animationChannelCount))
                 {
-                    GP_ERROR("Failed to read the number of animation channels for animation '%s'.", "animationChannelCount", id.c_str());
+                    GP_ERROR("Failed to read the number of animation channels for animation '%s'.", "animationChannelCount", animationId.c_str());
                     SAFE_DELETE(_trackedNodes);
                     return NULL;
                 }
 
-                Animation* animation = NULL;
+				Animation* animation = NULL;
+				if (sceneContext == NULL) {
+					animation = node->findAnimation(animationId);
+				}
+				else {
+					animation = sceneContext->findAnimation(animationId);
+				}
+				
                 for (unsigned int k = 0; k < animationChannelCount; k++)
                 {
                     // Read target id.
                     std::string targetId = readString(_stream);
                     if (targetId.empty())
                     {
-                        GP_ERROR("Failed to read target id for animation '%s'.", id.c_str());
+                        GP_ERROR("Failed to read target id for animation '%s'.", animationId.c_str());
                         SAFE_DELETE(_trackedNodes);
                         return NULL;
                     }
@@ -569,7 +582,7 @@ Node* Bundle::loadNode(const char* id, Scene* sceneContext)
                         unsigned int targetAttribute;
                         if (!read(&targetAttribute))
                         {
-                            GP_ERROR("Failed to read target attribute for animation '%s'.", id.c_str());
+                            GP_ERROR("Failed to read target attribute for animation '%s'.", animationId.c_str());
                             SAFE_DELETE(_trackedNodes);
                             return NULL;
                         }
@@ -577,12 +590,23 @@ Node* Bundle::loadNode(const char* id, Scene* sceneContext)
                         AnimationTarget* target = iter->second;
                         if (!target)
                         {
-                            GP_ERROR("Failed to read %s for %s: %s", "animation target", targetId.c_str(), id.c_str());
+                            GP_ERROR("Failed to read %s for %s: %s", "animation target", targetId.c_str(), animationId.c_str());
                             SAFE_DELETE(_trackedNodes);
                             return NULL;
                         }
 
-                        animation = readAnimationChannelData(animation, id.c_str(), target, targetAttribute);
+						if (animation == NULL) {
+							animation = readAnimationChannelData(animation, animationId.c_str(), target, targetAttribute);
+							if (sceneContext == NULL) {
+								node->addAnimation(animation);
+							}
+							else {
+								sceneContext->addAnimation(animation);
+							}
+						}
+						else {
+							animation = readAnimationChannelData(animation, animationId.c_str(), target, targetAttribute);
+						}
                     }
                     else
                     {
@@ -590,14 +614,14 @@ Node* Bundle::loadNode(const char* id, Scene* sceneContext)
                         unsigned int data;
                         if (!read(&data))
                         {
-                            GP_ERROR("Failed to skip over target attribute for animation '%s'.", id.c_str());
+                            GP_ERROR("Failed to skip over target attribute for animation '%s'.", animationId.c_str());
                             SAFE_DELETE(_trackedNodes);
                             return NULL;
                         }
 
                         // Skip the animation channel (passing a target attribute of
                         // 0 causes the animation to not be created).
-                        readAnimationChannelData(NULL, id.c_str(), NULL, 0);
+                        readAnimationChannelData(NULL, animationId.c_str(), NULL, 0);
                     }
                 }
             }
@@ -727,13 +751,17 @@ Node* Bundle::readNode(Scene* sceneContext, Node* nodeContext)
     {
     case Node::NODE:
         node = Node::create(id);
+		GP_WARN("readNode node = '%s',type=NODE.", node->getId());
         break;
     case Node::JOINT:
         node = Joint::create(id);
+		GP_WARN("readNode node = '%s',type=JOINT.", node->getId());
         break;
     default:
         return NULL;
     }
+
+	
 
     if (_trackedNodes)
     {
@@ -1144,7 +1172,7 @@ void Bundle::resolveJointReferences(Scene* sceneContext, Node* nodeContext)
             Node* node = rootJoint;
             GP_ASSERT(node);
             Node* parent = node->getParent();
-
+			/*
             std::vector<Node*> loadedNodes;
             while (true)
             {
@@ -1199,19 +1227,36 @@ void Bundle::resolveJointReferences(Scene* sceneContext, Node* nodeContext)
                     break;
                 }
             }
+			*/
 
-            skinData->skin->setRootJoint(rootJoint);
+			while (parent)
+			{
+				if (skinData->skin->getJointIndex(static_cast<Joint*>(parent)) != -1)
+				{
+					// Parent is a joint in the MeshSkin, so treat it as the new root.
+					rootJoint = static_cast<Joint*>(parent);
+					node = parent;
+					parent = node->getParent();
+				} else {
+					node->remove();
+					break;
+				}
+			}
+
+			skinData->skin->setRootJoint(rootJoint);
 
             // Release all the nodes that we loaded since the nodes are now owned by the mesh skin/joints.
-            for (unsigned int i = 0; i < loadedNodes.size(); i++)
-            {
-                SAFE_RELEASE(loadedNodes[i]);
-            }
+            //for (unsigned int i = 0; i < loadedNodes.size(); i++)
+            //{
+            //    SAFE_RELEASE(loadedNodes[i]);
+            //}
         }
 
         // Remove the joint hierarchy from the scene since it is owned by the mesh skin.
-        if (sceneContext)
-            sceneContext->removeNode(skinData->skin->_rootNode);
+		if (sceneContext) {
+			sceneContext->removeNode(skinData->skin->_rootNode);
+		}
+            
 
         // Done with this MeshSkinData entry.
         SAFE_DELETE(_meshSkins[i]);
@@ -1219,23 +1264,25 @@ void Bundle::resolveJointReferences(Scene* sceneContext, Node* nodeContext)
     _meshSkins.clear();
 }
 
-void Bundle::readAnimation(Scene* scene)
+Animation* Bundle::readAnimation(Scene* scene, Animation* animation)
 {
     const std::string animationId = readString(_stream);
-
+#ifdef _DEBUG
+	GP_WARN("read animation Id ='%s'.", animationId.c_str());
+#endif
     // Read the number of animation channels in this animation.
     unsigned int animationChannelCount;
     if (!read(&animationChannelCount))
     {
         GP_ERROR("Failed to read animation channel count for animation '%s'.", animationId.c_str());
-        return;
+        return NULL;
     }
 
-    Animation* animation = NULL;
-    for (unsigned int i = 0; i < animationChannelCount; i++)
-    {
-        animation = readAnimationChannel(scene, animation, animationId.c_str());
-    }
+	for (unsigned int i = 0; i < animationChannelCount; i++)
+	{
+		animation = readAnimationChannel(scene, animation, animationId.c_str());
+	}
+	return animation;
 }
 
 void Bundle::readAnimations(Scene* scene)
@@ -1248,9 +1295,15 @@ void Bundle::readAnimations(Scene* scene)
         return;
     }
 
+	Animation* lastAnimation = NULL;
+	Animation* animation = NULL;
     for (unsigned int i = 0; i < animationCount; i++)
     {
-        readAnimation(scene);
+		animation = readAnimation(scene, animation);
+		if (animation != lastAnimation) {
+			scene->addAnimation(animation);
+			lastAnimation = animation;
+		}
     }
 }
 
@@ -1353,7 +1406,13 @@ Animation* Bundle::readAnimationChannelData(Animation* animation, const char* id
         }
         else
         {
-            animation->createChannel(target, targetAttribute, keyTimesCount, &keyTimes[0], &values[0], Curve::LINEAR);
+			if (strncmp(animation->getId(), id,strlen(animation->getId())) == 0) {
+				Animation::Channel* channel = animation->createChannel(target, targetAttribute, keyTimesCount, &keyTimes[0], &values[0], Curve::LINEAR);
+				animation->addTakeInfo(id, channel->getDuration());
+			}
+			else {
+				animation = target->createAnimation(id, targetAttribute, keyTimesCount, &keyTimes[0], &values[0], Curve::LINEAR);
+			}
         }
     }
 

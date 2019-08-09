@@ -1,11 +1,10 @@
 #include "Base.h"
 #include "Label.h"
-#include "Conversion.h"
 
 namespace gameplay
 {
 
-Label::Label() : _text(L""), _font(NULL)
+Label::Label() : _text(""), _font(NULL)
 {
 }
 
@@ -37,7 +36,7 @@ void Label::initialize(const char* typeName, Theme::Style* style, Properties* pr
 		const char* text = properties->getString("text");
 		if (text)
 		{
-			_text = Utf8ToUnicode(text);
+			_text = text;
 		}
 	}
 }
@@ -64,22 +63,15 @@ void Label::addListener(Control::Listener* listener, int eventFlags)
 
 void Label::setText(const char* text)
 {
-	_text = text ? Utf8ToUnicode(text) : L"";
-	if (_autoSize != AUTO_SIZE_NONE)
-		setDirty(DIRTY_BOUNDS);
-}
-
-void Label::setText(const wchar_t* text)
-{
-    if ((text == NULL && _text.length() > 0) || wcscmp(text, _text.c_str()) != 0)
+    if ((text == NULL && _text.length() > 0) || strcmp(text, _text.c_str()) != 0)
     {
-        _text = text ? text : L"";
+        _text = text ? text : "";
         if (_autoSize != AUTO_SIZE_NONE)
             setDirty(DIRTY_BOUNDS);
     }
 }
 
-const wchar_t* Label::getText()
+const char* Label::getText()
 {
     return _text.c_str();
 }

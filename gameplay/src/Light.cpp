@@ -183,25 +183,7 @@ const Vector3& Light::getColor() const
     default:
         GP_ERROR("Unsupported light type (%d).", _type);
         return Vector3::zero();
-    }
-}
 
-const Vector3* Light::getColorPtr() const
-{
-    switch (_type)
-    {
-        case DIRECTIONAL:
-            GP_ASSERT(_directional);
-            return &(_directional->color);
-        case POINT:
-            GP_ASSERT(_point);
-            return &(_point->color);
-        case SPOT:
-            GP_ASSERT(_spot);
-            return &(_spot->color);
-        default:
-            GP_ERROR("Unsupported light type (%d).", _type);
-            return NULL;
     }
 }
 

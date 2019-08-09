@@ -2263,10 +2263,10 @@ static int lua_Label_getText(lua_State* state)
             if ((lua_type(state, 1) == LUA_TUSERDATA))
             {
                 Label* instance = getInstance(state);
-                const wchar_t* result = instance->getText();
+                const char* result = instance->getText();
 
                 // Push the return value onto the stack.
-                lua_pushstring(state, (char*)result);
+                lua_pushstring(state, result);
 
                 return 1;
             }

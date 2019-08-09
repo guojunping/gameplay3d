@@ -26,7 +26,7 @@ namespace gameplay
 Node::Node(const char* id)
     : _scene(NULL), _firstChild(NULL), _nextSibling(NULL), _prevSibling(NULL), _parent(NULL), _childCount(0), _enabled(true), _tags(NULL),
     _drawable(NULL), _camera(NULL), _light(NULL), _audioSource(NULL), _collisionObject(NULL), _agent(NULL), _userObject(NULL),
-      _dirtyBits(NODE_DIRTY_ALL)
+      _dirtyBits(NODE_DIRTY_ALL), _animations(NULL)
 {
     GP_REGISTER_SCRIPT_EVENTS();
     if (id)
@@ -50,6 +50,7 @@ Node::~Node()
     SAFE_DELETE(_collisionObject);
     SAFE_RELEASE(_userObject);
     SAFE_DELETE(_tags);
+	SAFE_RELEASE(_animations);
     setAgent(NULL);
 }
 
@@ -234,7 +235,7 @@ Node* Node::findNode(const char* id, bool recursive, bool exactMatch, bool skipS
         Model* model = dynamic_cast<Model*>(_drawable);
         if (model)
         {
-            if (model->getSkin() != NULL && (rootNode = model->getSkin()->_rootNode) != NULL)
+			if (model->getSkin() != NULL && (rootNode = model->getSkin()->_rootNode) != NULL)
             {
                 if ((exactMatch && rootNode->_id == id) || (!exactMatch && rootNode->_id.find(id) == 0))
                     return rootNode;
@@ -704,7 +705,7 @@ Animation* Node::getAnimation(const char* id) const
         if (skin)
         {
             Node* rootNode = skin->_rootNode;
-            if (rootNode)
+            if (rootNode && rootNode != this->getParent())
             {
                 animation = rootNode->getAnimation(id);
                 if (animation)
@@ -1222,6 +1223,92 @@ Ref* Node::getUserObject() const
 void Node::setUserObject(Ref* obj)
 {
     _userObject = obj;
+}
+
+void Node::addAnimation(Animation* animation) {
+	GP_ASSERT(animation);
+
+	if (_animations == NULL) {
+		_animations = new Animations();
+	}
+
+	_animations->add(animation);
+}
+
+unsigned int Node::getAnimationCount() const {
+	int count = 0;
+	if (_animations) {
+		count += _animations->getAnimationCount();
+	}
+	for (Node* child = this->getFirstChild(); child != NULL; child = child->getNextSibling())
+	{
+		count += child->getAnimationCount();
+	}
+
+	return count;
+}
+
+unsigned int Node::getAnimations(std::vector<Animation*>& anmiations) const {
+	if (_animations) {
+		_animations->getAnimations(anmiations);
+	}
+	// Search immediate children first.
+	for (Node* child = getFirstChild(); child != NULL; child = child->getNextSibling())
+	{
+		child->getAnimations(anmiations);
+	}
+	return anmiations.size();
+}
+
+Animation* Node::findAnimation(const std::string &id) const {
+	if (_animations) {
+		Animation* anim = _animations->findAnimation(id);
+		if (anim != NULL) {
+			return anim;
+		}
+	}
+
+	// Search immediate children first.
+	for (Node* child = this->getFirstChild(); child != NULL; child = child->getNextSibling())
+	{
+		Animation* anim = child->findAnimation(id);
+		if (anim != NULL) {
+			return anim;
+		}
+	}
+	return NULL;
+}
+
+bool Node::removeAnimation(Animation* animation) {
+	if (_animations) {
+		if (_animations->removeAnimation(animation)) {
+			return true;
+		}
+	}
+	// Search immediate children first.
+	for (Node* child = this->getFirstChild(); child != NULL; child = child->getNextSibling())
+	{
+		if (child->removeAnimation(animation)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Node::removeAnimation(const std::string & id) {
+	if (_animations) {
+		if (_animations->removeAnimation(id)) {
+			return true;
+		}
+	}
+	// Search immediate children first.
+	for (Node* child = this->getFirstChild(); child != NULL; child = child->getNextSibling())
+	{
+		if (child->removeAnimation(id)) {
+			return true;
+		}
+	}
+	return false;
 }
 
 NodeCloneContext::NodeCloneContext()

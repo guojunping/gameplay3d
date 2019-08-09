@@ -2,6 +2,7 @@
 #define SCENE_H_
 
 #include "Node.h"
+#include "Animations.h"
 #include "MeshBatch.h"
 #include "ScriptController.h"
 #include "Light.h"
@@ -166,8 +167,6 @@ public:
      */
     const Vector3& getAmbientColor() const;
 
-    const Vector3 *getAmbientColorPtr() const;
-
     /**
      * Sets the ambient color of the scene.
      *
@@ -258,6 +257,15 @@ public:
      */
     void reset();
 
+	/* animation manage */
+	void addAnimation(Animation* animation);
+	unsigned int getAnimationCount() const;
+	unsigned int getAnimations(std::vector<Animation*>& nodes) const;
+	Animation* findAnimation(const std::string &id) const;
+	void removeAnimation(Animation* animation);
+	void removeAnimation(const std::string & id);
+
+
 private:
 
     /**
@@ -303,6 +311,7 @@ private:
 
     std::string _id;
     Camera* _activeCamera;
+	Animations* _animations;
     Node* _firstNode;
     Node* _lastNode;
     unsigned int _nodeCount;
@@ -350,7 +359,8 @@ void Scene::visitNode(Node* node, T* instance, bool (T::*visitMethod)(Node*))
     // visited, it's possible that nodes embedded within the joint hierarchy that contain
     // models will never get visited (and therefore never get drawn).
     Model* model = dynamic_cast<Model*>(node->getDrawable());
-    if (model && model->_skin && model->_skin->_rootNode)
+    //if (model && model->_skin && model->_skin->_rootNode && node->getParent() != model->_skin->_rootNode)
+	if (model && model->_skin && model->_skin->_rootNode)
     {
         visitNode(model->_skin->_rootNode, instance, visitMethod);
     }
@@ -374,7 +384,8 @@ void Scene::visitNode(Node* node, T* instance, bool (T::*visitMethod)(Node*,C), 
     // visited, it's possible that nodes embedded within the joint hierarchy that contain
     // models will never get visited (and therefore never get drawn).
     Model* model = dynamic_cast<Model*>(node->getDrawable());
-    if (model && model->_skin && model->_skin->_rootNode)
+    //if (model && model->_skin && model->_skin->_rootNode && node->getParent() != model->_skin->_rootNode)
+	if (model && model->_skin && model->_skin->_rootNode)
     {
         visitNode(model->_skin->_rootNode, instance, visitMethod, cookie);
     }

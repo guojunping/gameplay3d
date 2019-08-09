@@ -47,16 +47,14 @@ public:
      *
      * @param text The text to display.
      */
-	virtual void setText(const char* text);
-
-    virtual void setText(const wchar_t* text);
+    virtual void setText(const char* text);
 
     /**
      * Get the text displayed by this label.
      *
      * @return The text displayed by this label.
      */
-    const wchar_t* getText();
+    const char* getText();
 
     /**
      * Add a listener to be notified of specific events affecting
@@ -126,7 +124,7 @@ protected:
     /**
      * The text displayed by this label.
      */
-    std::wstring _text;
+    std::string _text;
 
     /**
      * The font being used to display the label.

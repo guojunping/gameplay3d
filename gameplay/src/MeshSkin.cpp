@@ -158,7 +158,6 @@ void MeshSkin::setJoint(Joint* joint, unsigned int index)
 Vector4* MeshSkin::getMatrixPalette() const
 {
     GP_ASSERT(_matrixPalette);
-
     for (size_t i = 0, count = _joints.size(); i < count; i++)
     {
         GP_ASSERT(_joints[i]);
