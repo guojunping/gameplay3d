@@ -1,0 +1,133 @@
+material textured
+{
+    u_worldViewProjectionMatrix = WORLD_VIEW_PROJECTION_MATRIX
+    u_ambientColor = SCENE_AMBIENT_COLOR
+    u_inverseTransposeWorldViewMatrix = INVERSE_TRANSPOSE_WORLD_VIEW_MATRIX
+    
+    sampler u_diffuseTexture
+    {
+        mipmap = true
+        wrapS = CLAMP
+        wrapT = CLAMP
+        minFilter = LINEAR_MIPMAP_LINEAR
+        magFilter = LINEAR
+    }
+
+    renderState
+    {
+        cullFace = true
+        depthTest = true
+    }
+    
+    technique
+    {
+        pass 
+        {
+            vertexShader = res/shaders/textured.vert
+            fragmentShader = res/shaders/textured.frag
+            defines = DIRECTIONAL_LIGHT_COUNT 1
+        }
+    }
+}
+
+material character_anim_eyeBallM : textured
+{
+    u_matrixPalette = MATRIX_PALETTE
+    
+    sampler u_diffuseTexture
+    {
+        path = res/png/upBodyC.png
+        wrapS = REPEAT
+        wrapT = REPEAT
+    }
+
+    technique
+    {
+        pass 
+        {
+            defines = SKINNING;SKINNING_JOINT_COUNT 58
+        }
+    }
+}
+
+material character_anim_headM : textured
+{
+    u_inverseTransposeWorldViewMatrix = INVERSE_TRANSPOSE_WORLD_VIEW_MATRIX
+    u_matrixPalette = MATRIX_PALETTE
+    
+    sampler u_diffuseTexture
+    {
+        path = res/png/head.png
+        wrapS = REPEAT
+        wrapT = REPEAT
+    }
+
+    technique
+    {
+        pass 
+        {
+            defines = SKINNING;SKINNING_JOINT_COUNT 58
+        }
+    }
+}
+
+material character_anim_jacketM : textured
+{
+    u_matrixPalette = MATRIX_PALETTE
+    
+    sampler u_diffuseTexture
+    {
+        path = res/png/jacket.png
+        wrapS = REPEAT
+        wrapT = REPEAT
+    }
+
+    technique
+    {
+        pass 
+        {
+            defines = SKINNING;SKINNING_JOINT_COUNT 58
+        }
+    }
+}
+
+material character_anim_pantsM : textured
+{
+    u_matrixPalette = MATRIX_PALETTE
+    
+    sampler u_diffuseTexture
+    {
+        path = res/png/pants.png
+        wrapS = REPEAT
+        wrapT = REPEAT
+    }
+
+    technique
+    {
+        pass 
+        {
+            defines = SKINNING;SKINNING_JOINT_COUNT 58
+        }
+    }
+}
+
+material character_anim_upBodyM : textured
+{
+    u_matrixPalette = MATRIX_PALETTE
+    
+    sampler u_diffuseTexture
+    {
+        path = res/png/upBodyC.png
+        wrapS = REPEAT
+        wrapT = REPEAT
+    }
+
+    technique
+    {
+        pass 
+        {
+            defines = SKINNING;SKINNING_JOINT_COUNT 58
+        }
+    }
+}
+
